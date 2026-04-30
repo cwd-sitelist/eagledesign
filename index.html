@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>luxine &#8211; Architecture &amp; Interior Design WordPress Theme</title>
+	<meta name='robots' content='max-image-preview:large' />
+	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+	<link rel="alternate" type="application/rss+xml" title="luxine &raquo; Feed" href="feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="luxine &raquo; Comments Feed"
+		href="comments/feed/index.html" />
+	<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
+		href="wp-json/oembed/1.0/embed8c1d.json?url=https%3A%2F%2Fdemo.awaikenthemes.com%2Fluxine%2F" />
+	<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
+		href="wp-json/oembed/1.0/embed950a?url=https%3A%2F%2Fdemo.awaikenthemes.com%2Fluxine%2F&amp;format=xml" />
+	<style id='wp-img-auto-sizes-contain-inline-css'>
+		img:is([sizes=auto i], [sizes^="auto," i]) {
+			contain-intrinsic-size: 3000px 1500px
+		}
+
+		/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+	</style>
+	<link rel='stylesheet' href='css/custom-frontend.min8a22.css' media='all' />
+	<link rel='stylesheet' href='css/post-8508a22.css' media='all' />
+	<link rel='stylesheet' href='css/post-8518a22.css' media='all' />
+	<style id='wp-emoji-styles-inline-css'>
+		img.wp-smiley,
+		img.emoji {
+			display: inline !important;
+			border: none !important;
+			box-shadow: none !important;
+			height: 1em !important;
+			width: 1em !important;
+			margin: 0 0.07em !important;
+			vertical-align: -0.1em !important;
+			background: none !important;
+			padding: 0 !important;
+		}
+
+		/*# sourceURL=wp-emoji-styles-inline-css */
+	</style>
+	<style id='classic-theme-styles-inline-css'>
+		/*! This file is auto-generated */
+		.wp-block-button__link {
+			color: #fff;
+			background-color: #32373c;
+			border-radius: 9999px;
+			box-shadow: none;
+			text-decoration: none;
+			padding: calc(.667em + 2px) calc(1.333em + 2px);
+			font-size: 1.125em
+		}
+
+		.wp-block-file__button {
+			background: #32373c;
+			color: #fff;
+			text-decoration: none
+		}
+
+		/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+	</style>
+	<style id='global-styles-inline-css'>
+		:root {
+			--wp--preset--aspect-ratio--square: 1;
+			--wp--preset--aspect-ratio--4-3: 4/3;
+			--wp--preset--aspect-ratio--3-4: 3/4;
+			--wp--preset--aspect-ratio--3-2: 3/2;
+			--wp--preset--aspect-ratio--2-3: 2/3;
+			--wp--preset--aspect-ratio--16-9: 16/9;
+			--wp--preset--aspect-ratio--9-16: 9/16;
+			--wp--preset--color--black: #000000;
+			--wp--preset--color--cyan-bluish-gray: #abb8c3;
+			--wp--preset--color--white: #ffffff;
+			--wp--preset--color--pale-pink: #f78da7;
+			--wp--preset--color--vivid-red: #cf2e2e;
+			--wp--preset--color--luminous-vivid-orange: #ff6900;
+			--wp--preset--color--luminous-vivid-amber: #fcb900;
+			--wp--preset--color--light-green-cyan: #7bdcb5;
+			--wp--preset--color--vivid-green-cyan: #00d084;
+			--wp--preset--color--pale-cyan-blue: #8ed1fc;
+			--wp--preset--color--vivid-cyan-blue: #0693e3;
+			--wp--preset--color--vivid-purple: #9b51e0;
+			--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(155, 81, 224) 100%);
+			--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+			--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgb(252, 185, 0) 0%, rgb(255, 105, 0) 100%);
+			--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgb(255, 105, 0) 0%, rgb(207, 46, 46) 100%);
+			--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+			--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+			--wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+			--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+			--wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+			--wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+			--wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+			--wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+			--wp--preset--font-size--small: 13px;
+			--wp--preset--font-size--medium: 20px;
+			--wp--preset--font-size--large: 36px;
+			--wp--preset--font-size--x-large: 42px;
+			--wp--preset--spacing--20: 0.44rem;
+			--wp--preset--spacing--30: 0.67rem;
+			--wp--preset--spacing--40: 1rem;
+			--wp--preset--spacing--50: 1.5rem;
+			--wp--preset--spacing--60: 2.25rem;
+			--wp--preset--spacing--70: 3.38rem;
+			--wp--preset--spacing--80: 5.06rem;
+			--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+			--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+			--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+			--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);
+			--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);
+		}
+
+		:where(.is-layout-flex) {
+			gap: 0.5em;
+		}
+
+		:where(.is-layout-grid) {
+			gap: 0.5em;
+		}
+
+		body .is-layout-flex {
+			display: flex;
+		}
+
+		.is-layout-flex {
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		.is-layout-flex> :is(*, div) {
+			margin: 0;
+		}
+
+		body .is-layout-grid {
+			display: grid;
+		}
+
+		.is-layout-grid> :is(*, div) {
+			margin: 0;
+		}
+
+		:where(.wp-block-columns.is-layout-flex) {
+			gap: 2em;
+		}
+
+		:where(.wp-block-columns.is-layout-grid) {
+			gap: 2em;
+		}
+
+		:where(.wp-block-post-template.is-layout-flex) {
+			gap: 1.25em;
+		}
+
+		:where(.wp-block-post-template.is-layout-grid) {
+			gap: 1.25em;
+		}
+
+		.has-black-color {
+			color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-color {
+			color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-color {
+			color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-color {
+			color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-color {
+			color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-color {
+			color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-color {
+			color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-color {
+			color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-color {
+			color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-color {
+			color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-color {
+			color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-color {
+			color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-black-background-color {
+			background-color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-background-color {
+			background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-background-color {
+			background-color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-background-color {
+			background-color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-background-color {
+			background-color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-background-color {
+			background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-background-color {
+			background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-background-color {
+			background-color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-background-color {
+			background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-background-color {
+			background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-background-color {
+			background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-background-color {
+			background-color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-black-border-color {
+			border-color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-border-color {
+			border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-border-color {
+			border-color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-border-color {
+			border-color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-border-color {
+			border-color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-border-color {
+			border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-border-color {
+			border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-border-color {
+			border-color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-border-color {
+			border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-border-color {
+			border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-border-color {
+			border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-border-color {
+			border-color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+			background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+		}
+
+		.has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+			background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+		}
+
+		.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+			background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-orange-to-vivid-red-gradient-background {
+			background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+		}
+
+		.has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+			background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+		}
+
+		.has-cool-to-warm-spectrum-gradient-background {
+			background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+		}
+
+		.has-blush-light-purple-gradient-background {
+			background: var(--wp--preset--gradient--blush-light-purple) !important;
+		}
+
+		.has-blush-bordeaux-gradient-background {
+			background: var(--wp--preset--gradient--blush-bordeaux) !important;
+		}
+
+		.has-luminous-dusk-gradient-background {
+			background: var(--wp--preset--gradient--luminous-dusk) !important;
+		}
+
+		.has-pale-ocean-gradient-background {
+			background: var(--wp--preset--gradient--pale-ocean) !important;
+		}
+
+		.has-electric-grass-gradient-background {
+			background: var(--wp--preset--gradient--electric-grass) !important;
+		}
+
+		.has-midnight-gradient-background {
+			background: var(--wp--preset--gradient--midnight) !important;
+		}
+
+		.has-small-font-size {
+			font-size: var(--wp--preset--font-size--small) !important;
+		}
+
+		.has-medium-font-size {
+			font-size: var(--wp--preset--font-size--medium) !important;
+		}
+
+		.has-large-font-size {
+			font-size: var(--wp--preset--font-size--large) !important;
+		}
+
+		.has-x-large-font-size {
+			font-size: var(--wp--preset--font-size--x-large) !important;
+		}
+
+		:where(.wp-block-post-template.is-layout-flex) {
+			gap: 1.25em;
+		}
+
+		:where(.wp-block-post-template.is-layout-grid) {
+			gap: 1.25em;
+		}
+
+		:where(.wp-block-term-template.is-layout-flex) {
+			gap: 1.25em;
+		}
+
+		:where(.wp-block-term-template.is-layout-grid) {
+			gap: 1.25em;
+		}
+
+		:where(.wp-block-columns.is-layout-flex) {
+			gap: 2em;
+		}
+
+		:where(.wp-block-columns.is-layout-grid) {
+			gap: 2em;
+		}
+
+		:root :where(.wp-block-pullquote) {
+			font-size: 1.5em;
+			line-height: 1.6;
+		}
+
+		/*# sourceURL=global-styles-inline-css */
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+	<link rel='stylesheet' href='css/stylesb5e1.css' media='all' />
+	<link rel='stylesheet' href='css/elementor-icons.min7f15.css' media='all' />
+	<link rel='stylesheet' href='css/post-108a22.css' media='all' />
+	<link rel='stylesheet' href='css/fadeInUp.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/widget-heading.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/mediaelementplayer-legacy.min1f61.css' media='all' />
+	<link rel='stylesheet' href='css/wp-mediaelement.minb34e.css' media='all' />
+	<link rel='stylesheet' id='widget-image-css' href='css/widget-image.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/custom-widget-icon-list.min8a22.css' media='all' />
+	<link rel='stylesheet' href='css/widget-text-path.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/widget-counter.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/swiper.min94a4.css' media='all' />
+	<link rel='stylesheet' href='css/e-swiper.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/widget-image-carousel.min787f.css' media='all' />
+	<link rel='stylesheet' href='css/widget-rating.min787f.css' media='all' />
+	<link rel='stylesheet' id='elementor-post-13-css' href='css/post-13ef82.css' media='all' />
+	<link rel='stylesheet' href='css/widget-styles7e2e.css' media='all' />
+	<link rel='stylesheet' href='css/widget-styles-pro3a05.css' media='all' />
+	<link rel='stylesheet' href='css/responsive7e2e.css' media='all' />
+	<link rel='stylesheet' id='luxine-font-css'
+		href='https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Space+Grotesk:wght@300..700&amp;display=swap'
+		media='all' />
+	<link rel='stylesheet' href='css/css-variable20b9.css' media='all' />
+	<link rel='stylesheet' href='css/all.min20b9.css' media='all' />
+	<link rel='stylesheet' href='css/bootstrap.min20b9.css' media='all' />
+	<link rel='stylesheet' href='css/style20b9.css' media='all' />
+	<link rel='stylesheet' id='elementor-gf-spacegrotesk-css'
+		href='https://fonts.googleapis.com/css?family=Space+Grotesk:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap'
+		media='all' />
+	<link rel='stylesheet' id='elementor-gf-dmsans-css'
+		href='https://fonts.googleapis.com/css?family=DM+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap'
+		media='all' />
+	<link rel='stylesheet' href='css/ekiticons7e2e.css' media='all' />
+	<link rel='stylesheet' href='css/fontawesome.min52d5.css' media='all' />
+	<link rel='stylesheet' href='css/brands.min52d5.css' media='all' />
+	<link rel='stylesheet' href='css/solid.min52d5.css' media='all' />
+	<script src="js/jquery.minf43b.js"></script>
+	<script src="js/jquery-migrate.min5589.js"></script>
+	<link rel="https://api.w.org/" href="wp-json/index.html" />
+	<link rel="alternate" title="JSON" type="application/json" href="wp-json/wp/v2/pages/13.json" />
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+	<link rel="canonical" href="index.html" />
+	<link rel='shortlink' href='index.html' />
+	<meta name="generator"
+		content="Elementor 3.35.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+	<script
+		type="text/javascript">var elementskit_module_parallax_url = "wp-content/plugins/elementskit/modules/parallax/index.html";</script>
+	<style>
+		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+			background-image: none !important;
+		}
+
+		@media screen and (max-height: 1024px) {
+
+			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+				background-image: none !important;
+			}
+		}
+
+		@media screen and (max-height: 640px) {
+
+			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+				background-image: none !important;
+			}
+		}
+	</style>
+	<link rel="icon" href="image/favicon 1.png" sizes="32x32" />
+	<link rel="icon" href="image/favicon 1.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="image/favicon 1.png" />
+
+</head>
+
+<body
+	class="home wp-singular page-template page-template-elementor_header_footer page page-id-13 wp-custom-logo wp-theme-luxine tt-magic-cursor fancy-scrollbar elementor-default elementor-template-full-width elementor-kit-10 elementor-page elementor-page-13">
+
+	<div class="theme-preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="image/favicon 1.png" alt="Preloader"></div>
+		</div>
+	</div>
+	<div id="magic-cursor">
+		<div id="ball"></div>
+	</div>
+
+	<a class="skip-link screen-reader-text" href="#content">
+		Skip to content </a>
+
+
+	<div class="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
+		<div data-elementor-type="wp-post" data-elementor-id="850" class="elementor elementor-850">
+			<div class="elementor-element elementor-element-e46f6c2 e-flex e-con-boxed e-con e-parent" data-id="e46f6c2"
+				data-element_type="container" data-e-type="container"
+				data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-160d03e e-con-full e-flex e-con e-child"
+						data-id="160d03e" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-d2224d2 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="d2224d2" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<a href="tel:+91 70506 12345" class="ekit_global_links">
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text-left icon-lef-right-aligin elementor-animation- media  ">
+										<div class="elementskit-box-header elementor-animation-">
+											<div class="elementskit-info-box-icon  text-center">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													viewBox="0 0 20 20" fill="currentColor">
+													<mask id="mask0_1313_59" style="mask-type:luminance"
+														maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+														<path d="M20 0H0V20H20V0Z"></path>
+													</mask>
+													<path
+														d="M15.8064 12.3887C15.397 11.9624 14.9031 11.7344 14.3797 11.7344C13.8605 11.7344 13.3624 11.9581 12.936 12.3845L11.6022 13.7141C11.4924 13.655 11.3827 13.6002 11.2771 13.5453C11.1252 13.4693 10.9816 13.3975 10.8592 13.3216C9.60978 12.528 8.47429 11.4938 7.38524 10.1557C6.8576 9.48877 6.50302 8.92736 6.24553 8.35751C6.59166 8.04092 6.91247 7.71168 7.22483 7.39509C7.34303 7.2769 7.46122 7.15448 7.57941 7.03629C8.46585 6.14985 8.46585 5.00171 7.57941 4.11527L6.42704 2.9629C6.29618 2.83204 6.16111 2.69697 6.03447 2.56189C5.78121 2.30018 5.51527 2.03003 5.2409 1.77676C4.83145 1.37153 4.3418 1.15625 3.82682 1.15625C3.31184 1.15625 2.81375 1.37153 2.39163 1.77676C2.38741 1.78098 2.38741 1.78098 2.38319 1.7852L0.948004 3.23305C0.407699 3.77336 0.099556 4.43185 0.0320178 5.19588C-0.0692895 6.42845 0.293728 7.5766 0.572323 8.32796C1.25615 10.1726 2.27766 11.8822 3.80149 13.7141C5.65035 15.9218 7.87489 17.6651 10.416 18.8935C11.3869 19.3536 12.6828 19.8981 14.1306 19.991C14.2193 19.9952 14.3121 19.9994 14.3965 19.9994C15.3716 19.9994 16.1905 19.6491 16.8321 18.9526C16.8364 18.9441 16.8448 18.9399 16.849 18.9315C17.0685 18.6655 17.3218 18.4249 17.5877 18.1674C17.7692 17.9944 17.955 17.8129 18.1365 17.6229C18.5544 17.1881 18.7739 16.6816 18.7739 16.1624C18.7739 15.639 18.5501 15.1367 18.1238 14.7145L15.8064 12.3887ZM17.3176 16.8336C17.3134 16.8378 17.3134 16.8336 17.3176 16.8336C17.1529 17.0108 16.9841 17.1712 16.8026 17.3485C16.5282 17.6102 16.2496 17.8846 15.9879 18.1928C15.5616 18.6486 15.0593 18.8639 14.4008 18.8639C14.3375 18.8639 14.2699 18.8639 14.2066 18.8597C12.9529 18.7795 11.7879 18.2898 10.9141 17.872C8.52494 16.7154 6.42704 15.0733 4.68371 12.9923C3.2443 11.2574 2.28188 9.6534 1.64449 7.93117C1.25193 6.88011 1.10841 6.06121 1.17172 5.28874C1.21394 4.79487 1.40389 4.38542 1.75424 4.03507L3.19365 2.59566C3.40048 2.40149 3.61998 2.29596 3.83526 2.29596C4.10119 2.29596 4.31647 2.45636 4.45155 2.59144C4.45577 2.59566 4.45999 2.59988 4.46421 2.6041C4.7217 2.8447 4.96653 3.09375 5.22402 3.35968C5.35487 3.49476 5.48995 3.62984 5.62502 3.76913L6.77739 4.9215C7.22483 5.36894 7.22483 5.78262 6.77739 6.23006C6.65498 6.35247 6.53679 6.47488 6.41438 6.59307C6.0598 6.95609 5.72211 7.29378 5.35487 7.62303C5.34643 7.63147 5.33799 7.63569 5.33377 7.64414C4.97075 8.00715 5.03829 8.36173 5.11427 8.60233C5.11849 8.615 5.12271 8.62766 5.12693 8.64033C5.42663 9.36636 5.84874 10.0502 6.49036 10.8649L6.49458 10.8691C7.65961 12.3043 8.88796 13.4229 10.2429 14.2798C10.416 14.3895 10.5933 14.4782 10.7621 14.5626C10.9141 14.6386 11.0576 14.7103 11.18 14.7863C11.1969 14.7947 11.2138 14.8074 11.2307 14.8158C11.3742 14.8876 11.5093 14.9214 11.6486 14.9214C11.9989 14.9214 12.2184 14.7019 12.2902 14.6301L13.7338 13.1865C13.8773 13.043 14.1053 12.8699 14.3712 12.8699C14.6329 12.8699 14.8482 13.0345 14.9791 13.178C14.9833 13.1823 14.9833 13.1823 14.9875 13.1865L17.3134 15.5123C17.7481 15.9429 17.7481 16.3861 17.3176 16.8336Z">
+													</path>
+													<path
+														d="M10.8084 4.75936C11.9144 4.94509 12.919 5.46851 13.721 6.27052C14.523 7.07254 15.0422 8.07717 15.2322 9.18311C15.2786 9.4617 15.5192 9.65588 15.7936 9.65588C15.8274 9.65588 15.8569 9.65166 15.8907 9.64743C16.203 9.59678 16.4099 9.3013 16.3592 8.98894C16.1313 7.65084 15.4981 6.43093 14.5315 5.46429C13.5648 4.49765 12.3449 3.86448 11.0068 3.63654C10.6944 3.58588 10.4032 3.79272 10.3483 4.10086C10.2934 4.409 10.4961 4.7087 10.8084 4.75936Z">
+													</path>
+													<path
+														d="M19.9771 8.82242C19.6014 6.61899 18.563 4.61395 16.9674 3.01836C15.3718 1.42277 13.3668 0.384369 11.1634 0.00868773C10.8552 -0.0461871 10.564 0.16487 10.5091 0.473013C10.4584 0.785377 10.6653 1.07664 10.9776 1.13151C12.9447 1.46498 14.7387 2.39785 16.1654 3.82037C17.5922 5.24712 18.5208 7.0411 18.8543 9.00815C18.9007 9.28675 19.1413 9.48092 19.4157 9.48092C19.4495 9.48092 19.479 9.4767 19.5128 9.47248C19.8209 9.42604 20.032 9.13056 19.9771 8.82242Z">
+													</path>
+												</svg>
+											</div>
+										</div>
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												+91 70506 12345 </h3>
+										</div>
+
+
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-dcf7b1f ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="dcf7b1f" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<a href="mailto:eagle@gmail.com" class="ekit_global_links">
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text-left icon-lef-right-aligin elementor-animation- media  ">
+										<div class="elementskit-box-header elementor-animation-">
+											<div class="elementskit-info-box-icon  text-center">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													viewBox="0 0 20 20" fill="currentColor">
+													<path
+														d="M18.2422 2.96875H1.75781C0.786602 2.96875 0 3.76023 0 4.72656V15.2734C0 16.2455 0.792383 17.0312 1.75781 17.0312H18.2422C19.2053 17.0312 20 16.2488 20 15.2734V4.72656C20 3.76195 19.2165 2.96875 18.2422 2.96875ZM17.996 4.14062C17.6369 4.49785 11.4564 10.6458 11.243 10.8581C10.9109 11.1901 10.4695 11.3729 10 11.3729C9.53047 11.3729 9.08906 11.1901 8.75594 10.857C8.61242 10.7142 2.50012 4.63414 2.00398 4.14062H17.996ZM1.17188 15.0349V4.96582L6.23586 10.0031L1.17188 15.0349ZM2.00473 15.8594L7.06672 10.8296L7.9284 11.6867C8.48176 12.2401 9.21746 12.5448 10 12.5448C10.7825 12.5448 11.5182 12.2401 12.0705 11.6878L12.9333 10.8296L17.9953 15.8594H2.00473ZM18.8281 15.0349L13.7641 10.0031L18.8281 4.96582V15.0349Z">
+													</path>
+												</svg>
+											</div>
+										</div>
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												eagle@gmail.com </h3>
+										</div>
+
+
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-e0a3d34 e-con-full elementor-hidden-mobile e-flex e-con e-child"
+						data-id="e0a3d34" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-438fb7f topbar-social-links elementor-widget elementor-widget-elementskit-social-media"
+							data-id="438fb7f" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-social-media.default">
+							<div class="elementor-widget-container">
+								<div class="ekit-wid-con">
+									<ul class="ekit_social_media">
+										<li class="elementor-repeater-item-8682076">
+											<a href="#" aria-label="Instagram" class="1">
+
+												<i class="fab fa-instagram"></i>
+
+												Instagram </a>
+										</li>
+										<li class="elementor-repeater-item-711172e">
+											<a href="#" aria-label="Facebook" class="facebook">
+
+												<i class="fab fa-facebook-f"></i>
+
+												Facebook </a>
+										</li>
+										<li class="elementor-repeater-item-82faac6">
+											<a href="#" aria-label="Dribbble" class="dribbble">
+
+												<i class="fab fa-twitter"></i>
+
+												Twitter </a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-element elementor-element-5f12933 header-version-1 e-flex e-con-boxed e-con e-parent"
+				data-id="5f12933" data-element_type="container" data-e-type="container"
+				data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-d45ae45 e-con-full e-flex e-con e-child"
+						data-id="d45ae45" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-2fa6369 elementor-widget elementor-widget-luxine-site-logo"
+							data-id="2fa6369" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;align&quot;:&quot;left&quot;,&quot;width&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:100,&quot;sizes&quot;:[]},&quot;space&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:100,&quot;sizes&quot;:[]},&quot;space_laptop&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;space_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;space_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;max_height&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:50,&quot;sizes&quot;:[]},&quot;width_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;width_tablet&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;width_mobile&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;max_height_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;max_height_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;max_height_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;image_border_radius_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;image_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;image_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;caption_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;caption_padding_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;caption_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;caption_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;caption_space&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;caption_space_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;caption_space_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;caption_space_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="luxine-site-logo.default">
+							<div class="elementor-widget-container">
+								<div class="ata-site-logo">
+									<a data-elementor-open-lightbox="" class='elementor-clickable'
+										href="#">
+										<div class="ata-site-logo-set">
+											<div class="ata-site-logo-container">
+												<img class="ata-site-logo-img elementor-animation-" src="image/logo.png"
+													alt="default-logo" />
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-fe2c02e e-con-full e-flex e-con e-child"
+						data-id="fe2c02e" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-38b63db main-header-menu elementor-widget elementor-widget-ekit-nav-menu"
+							data-id="38b63db" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="ekit-nav-menu.default">
+							<div class="elementor-widget-container">
+								<nav class="ekit-wid-con ekit_menu_responsive_tablet"
+									data-hamburger-icon="icon icon-menu-11" data-hamburger-icon-type="icon"
+									data-responsive-breakpoint="1024">
+									<button class="elementskit-menu-hamburger elementskit-menu-toggler" type="button"
+										aria-label="hamburger-icon">
+										<i aria-hidden="true" class="ekit-menu-icon icon icon-menu-11"></i> </button>
+									<div id="ekit-megamenu-header-menu"
+										class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page-no ekit-nav-dropdown-hover">
+										<ul id="menu-header-menu"
+											class="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon">
+											<li id="menu-item-7632"
+												class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-7632 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content"
+												data-vertical-menu=750px><a href="#"
+													class="ekit-menu-nav-link ekit-menu-dropdown-toggle">HOME</a>
+											</li>
+											<li id="menu-item-838"
+												class="menu-item menu-item-type-post_type menu-item-object-page menu-item-838 nav-item elementskit-mobile-builder-content"
+												data-vertical-menu=750px><a href="#" class="ekit-menu-nav-link">ABOUT
+													US</a></li>
+											<li id="menu-item-6760"
+												class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6760 nav-item elementskit-mobile-builder-content"
+												data-vertical-menu=750px><a href="#"
+													class="ekit-menu-nav-link">SERVICES</a></li>
+											<li id="menu-item-837"
+												class="menu-item menu-item-type-post_type menu-item-object-page menu-item-837 nav-item elementskit-mobile-builder-content"
+												data-vertical-menu=750px><a href="#"
+													class="ekit-menu-nav-link">GALLERY</a></li>
+											<li id="menu-item-9620"
+												class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9620 nav-item elementskit-mobile-builder-content"
+												data-vertical-menu=750px><a href="#" class="ekit-menu-nav-link">CONTACT
+													US</a></li>
+										</ul>
+										<div class="elementskit-nav-identity-panel"><button
+												class="elementskit-menu-close elementskit-menu-toggler"
+												type="button">X</button></div>
+									</div>
+									<div
+										class="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler ekit-nav-menu--overlay">
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-5ed8dee e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child"
+						data-id="5ed8dee" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-363476a elementor-align-right elementor-tablet-align-left elementor-widget elementor-widget-button"
+							data-id="363476a" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">Get In Touch</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div data-elementor-type="wp-page" data-elementor-id="13" class="elementor elementor-13">
+		<div data-ekitparallax="{&quot;ekit_section_parallax_bg&quot;:&quot;yes&quot;,&quot;ekit_section_parallax_bg_speed&quot;:0.5,&quot;elementor_lazy_load&quot;:&quot;1&quot;}"
+			class="elementor-element elementor-element-fe2e413 e-flex e-con-boxed e-con e-parent" data-id="fe2e413"
+			data-element_type="container" data-e-type="container"
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3793f90 e-con-full e-flex e-con e-child"
+					data-id="3793f90" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-59399c8 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+						data-id="59399c8" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h3 class="elementor-heading-title elementor-size-default"> Designing Homes That Blend Comfort
+							and Style</h3>
+					</div>
+					<div class="elementor-element elementor-element-7c2fdb5 at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+						data-id="7c2fdb5" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h1 class="elementor-heading-title elementor-size-default">MODERN INTERIORS CRAFTED WITH PASSION
+						</h1>
+					</div>
+					<div class="elementor-element elementor-element-571dc74 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-invisible elementor-widget elementor-widget-text-editor"
+						data-id="571dc74" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="text-editor.default">
+						<p> Inspired by innovation and shaped by detail, we craft spaces that combine aesthetic beauty
+							with practical design, delivering interiors that feel both timeless and contemporary.
+						</p>
+					</div>
+					<div class="elementor-element elementor-element-819f23d e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="819f23d" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:200}">
+						<div class="elementor-element elementor-element-7d450ea elementor-widget elementor-widget-button"
+							data-id="7d450ea" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">Learn More</span>
+								</span>
+							</a>
+						</div>
+						<div class="elementor-element elementor-element-7e9d645 e-con-full e-flex e-con e-child"
+							data-id="7e9d645" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-f44ea18 elementor-widget elementor-widget-elementskit-video"
+								data-id="f44ea18" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="elementskit-video.default">
+								<div class="elementor-widget-container">
+									<div class="ekit-wid-con">
+										<div class="video-content" data-video-player="[]"
+											data-video-setting="{&quot;videoVolume&quot;:&quot;horizontal&quot;,&quot;startVolume&quot;:0.8000000000000000444089209850062616169452667236328125,&quot;videoType&quot;:&quot;iframe&quot;,&quot;videoClass&quot;:&quot;mfp-fade&quot;,&quot;popupIcon&quot;:{&quot;value&quot;:&quot;icon icon-cancel&quot;,&quot;library&quot;:&quot;ekiticons&quot;},&quot;videoStyle&quot;:&quot;popup&quot;,&quot;videoTypeName&quot;:&quot;youtube&quot;,&quot;autoplay&quot;:false,&quot;muted&quot;:false,&quot;loop&quot;:false}">
+
+											<a class="ekit_icon_button glow-ripple ekit-video-popup ekit-video-popup-btn"
+												href="https://www.youtube.com/embed/Y-x0efG1seA?feature=oembed?playlist=Y-x0efG1seA&amp;mute=0&amp;autoplay=0&amp;loop=no&amp;controls=0&amp;start=0&amp;end="
+												aria-label="video-popup">
+												<i class="fas fa-play"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-737dea0 elementor-widget elementor-widget-text-editor"
+								data-id="737dea0" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="text-editor.default">
+								<p>Watch Our Video</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-b519a36 e-con-full e-flex e-con e-parent" data-id="b519a36"
+			data-element_type="container" data-e-type="container">
+			<div class="elementor-element elementor-element-45cf88a e-con-full e-flex e-con e-child" data-id="45cf88a"
+				data-element_type="container" data-e-type="container"
+				data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+				<div class="elementor-element elementor-element-2636a1a ticker-position-left elementor-widget elementor-widget-elementskit-content-ticker"
+					data-id="2636a1a" data-element_type="widget" data-e-type="widget"
+					data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+					data-widget_type="elementskit-content-ticker.default">
+					<div class="ekit-wid-con">
+						<div id="content-ticker-2636a1a" class="ekit-content-ticker-wrapper"
+							data-content-settings="{&quot;type&quot;:&quot;content_ticker&quot;,&quot;settingOptions&quot;:{&quot;tickerSpeed&quot;:50,&quot;tickerDirection&quot;:null,&quot;tickerEffect&quot;:&quot;marquee&quot;,&quot;tickerAutoPlay&quot;:null,&quot;tickerDelay&quot;:3,&quot;tickerReverseDirection&quot;:&quot;&quot;,&quot;tickerGapBetween&quot;:&quot;&quot;,&quot;tickerGrabCursor&quot;:null}}">
+							<div class="ekit-content-items">
+								<div class="ticker ekitMarqueeSwiper ekit-marquee">
+									<div class="marquee-wrapper">
+										<div class="elementor-repeater-item-fe8a62b ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>EAGLE INTERIOR DESIGN</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-944ce16 ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>CONSTRUCTION</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-d6f453c ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>RENOVATION &amp; REMODELING</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-9ba8a24 ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>COMMERCIAL PROJECTS</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-f58216d ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>INTERIOR &amp; EXTERIOR DESIGN</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-a51456d ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>RENOVATION &amp; REMODELING</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-37d6414 ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>BUILDING DESIGN</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-0035037 ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="image/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>CONSTRUCTION</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-690e60e ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="wp-content/uploads/2025/12/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>RENOVATION &amp; REMODELING</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-2c2435f ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="wp-content/uploads/2025/12/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>COMMERCIAL PROJECTS</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-9d604cc ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="wp-content/uploads/2025/12/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>INTERIOR &amp; EXTERIOR DESIGN</a>
+											</div>
+										</div>
+										<div class="elementor-repeater-item-9a9f1e5 ekit-marquee-item ticker-item">
+											<img decoding="async" width="30" height="30"
+												src="wp-content/uploads/2025/12/icon-scrolling-ticker-white.svg"
+												class="attachment-full size-full wp-image-306" alt="" />
+											<div class="ekit-title-and-description">
+												<a>RENOVATION &amp; REMODELING</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-36ecb40 e-flex e-con-boxed e-con e-parent" data-id="36ecb40"
+			data-element_type="container" data-e-type="container">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b9bc6d2 e-con-full e-flex e-con e-child"
+					data-id="b9bc6d2" data-element_type="container" data-e-type="container"
+					data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="elementor-element elementor-element-5bed9d8 e-con-full e-flex e-con e-child"
+						data-id="5bed9d8" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-9c16cd4 at-shiny-glass-effect about-us-image-1 at-image-animation at-animation-image-none elementor-widget elementor-widget-image"
+							data-id="9c16cd4" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="image.default">
+							<img fetchpriority="high" decoding="async" width="453" height="500" src="image/about-us.png"
+								class="attachment-full size-full wp-image-350" alt=""
+								srcset="image/about-us.png 453w, image/about-us.png 272w"
+								sizes="(max-width: 453px) 100vw, 453px" />
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-0227477 e-con-full e-flex e-con e-child"
+						data-id="0227477" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-163716f about-us-image-title at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+							data-id="163716f" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h2 class="elementor-heading-title elementor-size-default">Eagle</h2>
+						</div>
+						<div class="elementor-element elementor-element-e066aa7 e-con-full e-flex e-con e-child"
+							data-id="e066aa7" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-11ec454 at-shiny-glass-effect about-us-image-2 at-image-animation at-animation-image-none elementor-widget elementor-widget-image"
+								data-id="11ec454" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="image.default">
+								<img decoding="async" width="430" height="398" src="image/about-us-img2.png"
+									class="attachment-full size-full wp-image-382" alt=""
+									srcset="image/about-us-img2.png 430w, image/about-us-img2.png 300w"
+									sizes="(max-width: 430px) 100vw, 430px" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-d411a38 e-con-full e-flex e-con e-child"
+					data-id="d411a38" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-7327327 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+						data-id="7327327" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h3 class="elementor-heading-title elementor-size-default">About Us</h3>
+					</div>
+					<div class="elementor-element elementor-element-f7028b5 at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+						data-id="f7028b5" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h2 class="elementor-heading-title elementor-size-default">Designing interiors that reflect your
+							lifestyle</h2>
+					</div>
+					<div class="elementor-element elementor-element-89bba01 elementor-invisible elementor-widget elementor-widget-text-editor"
+						data-id="89bba01" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="text-editor.default">
+						<p>At our studio, we believe that great design is more than just aesthetics—it’s about creating
+							spaces that inspire, comfort, and function beautifully in everyday life.</p>
+					</div>
+					<div class="elementor-element elementor-element-37c61a9 column-2 elementor-widget__width-inherit elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-invisible elementor-widget elementor-widget-icon-list"
+						data-id="37c61a9" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="icon-list.default">
+						<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+								<span class="elementor-icon-list-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+										fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M10.0035 1.25488C14.8351 1.25488 18.7535 5.17326 18.7535 10.0049C18.7535 14.8366 14.8351 18.755 10.0035 18.755C5.1718 18.755 1.25342 14.8366 1.25342 10.0049C1.25342 5.17326 5.1718 1.25488 10.0035 1.25488ZM8.18641 12.847L6.04419 10.703C5.67923 10.3378 5.67915 9.74234 6.04419 9.37723C6.4093 9.0122 7.00745 9.01448 7.3699 9.37723L8.88016 10.8887L12.6372 7.13166C13.0023 6.76655 13.5979 6.76655 13.9629 7.13166C14.328 7.4967 14.3275 8.09278 13.9629 8.45738L9.54195 12.8783C9.17736 13.2429 8.58127 13.2434 8.21623 12.8783C8.20598 12.8681 8.19608 12.8576 8.18641 12.847Z"
+											fill="url(#paint0_linear_453_4843)"></path>
+										<defs>
+											<linearGradient id="paint0_linear_453_4843" x1="1.25342" y1="10.0049"
+												x2="18.7535" y2="10.0049" gradientUnits="userSpaceOnUse">
+												<stop stop-color="#f1ca54"></stop>
+												<stop offset="1" stop-color="#d9a916"></stop>
+											</linearGradient>
+										</defs>
+									</svg> </span>
+								<span class="elementor-icon-list-text">We design interiors that balance comfort and
+									elegance. </span>
+							</li>
+							<li class="elementor-icon-list-item">
+								<span class="elementor-icon-list-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+										fill="none">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M10.0035 1.25488C14.8351 1.25488 18.7535 5.17326 18.7535 10.0049C18.7535 14.8366 14.8351 18.755 10.0035 18.755C5.1718 18.755 1.25342 14.8366 1.25342 10.0049C1.25342 5.17326 5.1718 1.25488 10.0035 1.25488ZM8.18641 12.847L6.04419 10.703C5.67923 10.3378 5.67915 9.74234 6.04419 9.37723C6.4093 9.0122 7.00745 9.01448 7.3699 9.37723L8.88016 10.8887L12.6372 7.13166C13.0023 6.76655 13.5979 6.76655 13.9629 7.13166C14.328 7.4967 14.3275 8.09278 13.9629 8.45738L9.54195 12.8783C9.17736 13.2429 8.58127 13.2434 8.21623 12.8783C8.20598 12.8681 8.19608 12.8576 8.18641 12.847Z"
+											fill="url(#paint0_linear_453_4843)"></path>
+										<defs>
+											<linearGradient id="paint0_linear_453_4843" x1="1.25342" y1="10.0049"
+												x2="18.7535" y2="10.0049" gradientUnits="userSpaceOnUse">
+												<stop stop-color="#f1ca54"></stop>
+												<stop offset="1" stop-color="#d9a916"></stop>
+											</linearGradient>
+										</defs>
+									</svg> </span>
+								<span class="elementor-icon-list-text">We focus on details that make every space unique.
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="elementor-element elementor-element-68ccba4 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="68ccba4" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
+						<div class="elementor-element elementor-element-964e814 e-con-full e-flex e-con e-child"
+							data-id="964e814" data-element_type="container" data-e-type="container"
+							data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-element elementor-element-a4663f7 e-con-full e-flex e-con e-child"
+								data-id="a4663f7" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-10510eb at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+									data-id="10510eb" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="heading.default">
+									<h2 class="elementor-heading-title elementor-size-default">Our Mission</h2>
+								</div>
+								<div class="elementor-element elementor-element-b6b7d80 elementor-view-default elementor-widget elementor-widget-icon"
+									data-id="b6b7d80" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="icon.default">
+									<div class="elementor-icon-wrapper">
+										<div class="elementor-icon">
+											 <img src="image/targeting.png" alt="Targeting Icon" width="80px">  
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-1133cba elementor-widget elementor-widget-text-editor"
+								data-id="1133cba" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="text-editor.default">
+								<p>To create inspiring, functional, and elegant interior spaces that reflect our
+									clients’ lifestyle while maintaining the highest standards of quality, creativity,
+									and precision.
+								</p>
+							</div>
+							<div class="elementor-element elementor-element-d7db3fe elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="d7db3fe" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#f1ca54"></stop>
+														<stop offset="1" stop-color="#d9a916"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">To deliver thoughtfully designed spaces
+											with attention to every detail</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-ed3cdfe e-con-full e-flex e-con e-child"
+							data-id="ed3cdfe" data-element_type="container" data-e-type="container"
+							data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-element elementor-element-322b562 e-con-full e-flex e-con e-child"
+								data-id="322b562" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-22cc4ff at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+									data-id="22cc4ff" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="heading.default">
+									<h2 class="elementor-heading-title elementor-size-default">Our Vision</h2>
+								</div>
+								<div class="elementor-element elementor-element-618c3ae elementor-view-default elementor-widget elementor-widget-icon"
+									data-id="618c3ae" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="icon.default">
+									<div class="elementor-icon-wrapper">
+										<div class="elementor-icon">
+											<img src="image/vision.png" alt="Targeting Icon" class="icon-about">  
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-e74b794 elementor-widget elementor-widget-text-editor"
+								data-id="e74b794" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="text-editor.default">
+								<p>To become a leading and trusted name in interior design by transforming spaces into
+									timeless environments that blend innovation, comfort, and style.</p>
+							</div>
+							<div class="elementor-element elementor-element-2f58155 elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="2f58155" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#f1ca54"></stop>
+														<stop offset="1" stop-color="#d9a916"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">To redefine modern living through
+											creative and sustainable design</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-71af39e e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="71af39e" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:400}">
+						<div class="elementor-element elementor-element-203e630 elementor-widget elementor-widget-button"
+							data-id="203e630" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm"
+								href="about-us/index.html">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">Read More</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-57e7815 e-flex e-con-boxed e-con e-parent" data-id="57e7815"
+			data-element_type="container" data-e-type="container"
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-22cb4eb e-con-full e-flex e-con e-child"
+					data-id="22cb4eb" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-155e3a1 e-con-full e-flex e-con e-child"
+						data-id="155e3a1" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-1bf8358 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+							data-id="1bf8358" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h3 class="elementor-heading-title elementor-size-default">Our Services</h3>
+						</div>
+						<div class="elementor-element elementor-element-7a800cb at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+							data-id="7a800cb" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h2 class="elementor-heading-title elementor-size-default">EXPERT INTERIOR SERVICES THAT
+								TRANSFORM MODERN SPACES </h2>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-e3d2008 e-con-full e-flex e-con e-child"
+						data-id="e3d2008" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-777c1c2 elementor-invisible elementor-widget elementor-widget-text-editor"
+							data-id="777c1c2" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="text-editor.default">
+							<p>We deliver complete architectural and interior design services that blend creativity,
+								functionality, and modern aesthetics to bring your vision to life.
+							</p>
+						</div>
+						<div class="elementor-element elementor-element-9a6cbad elementor-invisible elementor-widget elementor-widget-button"
+							data-id="9a6cbad" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">View More</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-109c8c8 e-con-full e-flex e-con e-child"
+					data-id="109c8c8" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-923c9b2 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="923c9b2" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+						<div class="elementor-element elementor-element-8d6fe03 service-item ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="8d6fe03" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<!-- end link opening -->
+
+								<div
+									class="elementskit-infobox text-left text-left icon-top-align elementor-animation-  gradient-active image-active hover_from_left">
+									<div class="elementskit-box-header elementor-animation-">
+										<div class="elementskit-info-box-icon  ">
+											<img src="image/living-room (1).png" alt="Architecture Icon" class="service-icon">
+										</div>
+									</div>
+									<div class="box-body">
+										<h3 class="elementskit-info-box-title">
+											Living Space Architecture </h3>
+										<p>Designing modern, comfortable & personalized living environments</p>
+										<div class="box-footer disable_hover_button">
+											<div class="btn-wraper">
+												<a class="elementskit-btn whitespace--normal"
+													href="services/residential-architecture/index.html">
+													<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewBox="0 0 12 12" fill="currentColor">
+														<path
+															d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+														</path>
+														<path
+															d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+														</path>
+													</svg> </a>
+											</div>
+										</div>
+									</div>
+
+									<figure class="image-hover"><img loading="lazy" decoding="async" width="1200"
+											height="800" src="image/hover-img1.png" class="attachment- size-" alt=""
+											srcset="image/hover-img1.png 1200w, himage/hover-img1.png 300w, image/hover-img1.png 1024w, image/hover-img1.png 768w"
+											sizes="(max-width: 1200px) 100vw, 1200px" /></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-6944912 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="6944912" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:100}">
+						<div class="elementor-element elementor-element-fddce62 service-item ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="fddce62" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<!-- end link opening -->
+
+								<div
+									class="elementskit-infobox text-left text-left icon-top-align elementor-animation-  gradient-active image-active hover_from_left">
+									<div class="elementskit-box-header elementor-animation-">
+										<div class="elementskit-info-box-icon  ">
+											<img src="image/desk (1).png" alt="Architecture Icon" class="service-icon">
+										</div>
+									</div>
+									<div class="box-body">
+										<h3 class="elementskit-info-box-title">
+											Workplace Design Solutions </h3>
+										<p>Creating efficient, dynamic & productivity-driven workspaces</p>
+										<div class="box-footer disable_hover_button">
+											<div class="btn-wraper">
+												<a class="elementskit-btn whitespace--normal" href="#">
+													<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewBox="0 0 12 12" fill="currentColor">
+														<path
+															d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+														</path>
+														<path
+															d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+														</path>
+													</svg> </a>
+											</div>
+										</div>
+									</div>
+
+									<figure class="image-hover"><img loading="lazy" decoding="async" width="1200"
+											height="800" src="image/hover-img2.png" class="attachment- size-" alt=""
+											srcset="image/hover-img2.png 1200w, image/hover-img2.png 300w, image/hover-img2.png 1024w, image/hover-img2.png 768w"
+											sizes="(max-width: 1200px) 100vw, 1200px" /></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-f10c939 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="f10c939" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:200}">
+						<div class="elementor-element elementor-element-0242726 service-item ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="0242726" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<!-- end link opening -->
+
+								<div
+									class="elementskit-infobox text-left text-left icon-top-align elementor-animation-  gradient-active image-active hover_from_left">
+									<div class="elementskit-box-header elementor-animation-">
+										<div class="elementskit-info-box-icon  ">
+											<img src="image/house-plan (1).png" alt="Architecture Icon" class="service-icon">
+										</div>
+									</div>
+									<div class="box-body">
+										<h3 class="elementskit-info-box-title">
+											Interior Planning & Styling </h3>
+										<p>Curating elegant, functional & well-balanced interior spaces</p>
+										<div class="box-footer disable_hover_button">
+											<div class="btn-wraper">
+												<a class="elementskit-btn whitespace--normal"
+													href="services/interior-design-styling/index.html">
+													<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewBox="0 0 12 12" fill="currentColor">
+														<path
+															d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+														</path>
+														<path
+															d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+														</path>
+													</svg> </a>
+											</div>
+										</div>
+									</div>
+
+									<figure class="image-hover"><img loading="lazy" decoding="async" width="1200"
+											height="800" src="image/hover-img3.png" class="attachment- size-" alt=""
+											srcset="image/hover-img3.png 1200w, image/hover-img3.png 300w, image/hover-img3.png 1024w, image/hover-img3.png 768w"
+											sizes="(max-width: 1200px) 100vw, 1200px" /></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-14ab95c e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="14ab95c" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
+						<div class="elementor-element elementor-element-5261376 service-item ekit-equal-height-enable elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="5261376" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<!-- end link opening -->
+
+								<div
+									class="elementskit-infobox text-left text-left icon-top-align elementor-animation-  gradient-active image-active hover_from_left">
+									<div class="elementskit-box-header elementor-animation-">
+										<div class="elementskit-info-box-icon  ">
+											<img src="image/sketch (1).png" alt="Architecture Icon" class="service-icon">
+										</div>
+									</div>
+									<div class="box-body">
+										<h3 class="elementskit-info-box-title">
+											Design to Build Management </h3>
+										<p>Delivering seamless, organized & end-to-end project execution</p>
+										<div class="box-footer disable_hover_button">
+											<div class="btn-wraper">
+												<a class="elementskit-btn whitespace--normal" href="#">
+													<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+														viewBox="0 0 12 12" fill="currentColor">
+														<path
+															d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+														</path>
+														<path
+															d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+														</path>
+													</svg> </a>
+											</div>
+										</div>
+									</div>
+
+									<figure class="image-hover"><img loading="lazy" decoding="async" width="1200"
+											height="800" src="image/hover-img4.png" class="attachment- size-" alt=""
+											srcset="image/hover-img4.png 1200w, image/hover-img4.png 300w, image/hover-img4.png 1024w, image/hover-img4.png 768w"
+											sizes="(max-width: 1200px) 100vw, 1200px" /></figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-6bf6c61 e-con-full e-flex elementor-invisible e-con e-child"
+					data-id="6bf6c61" data-element_type="container" data-e-type="container"
+					data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:400}">
+					<div class="elementor-element elementor-element-61640e9 elementor-widget elementor-widget-text-editor"
+						data-id="61640e9" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="text-editor.default">
+						<a href="#"><span style="text-decoration: underline;"><strong>Where Style
+									Meets Structure</strong></span></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-48b6c2c e-flex e-con-boxed e-con e-parent" data-id="48b6c2c"
+			data-element_type="container" data-e-type="container">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-995ca5b e-con-full e-flex e-con e-child"
+					data-id="995ca5b" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-f99fd87 e-con-full e-flex e-con e-child"
+						data-id="f99fd87" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-857e601 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+							data-id="857e601" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h3 class="elementor-heading-title elementor-size-default">Why Choose Us</h3>
+						</div>
+						<div class="elementor-element elementor-element-9ca2453 at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+							data-id="9ca2453" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h2 class="elementor-heading-title elementor-size-default"> YOUR CREATIVE PARTNER
+								FROM VISION TO EXECUTION</h2>
+						</div>
+						<div class="elementor-element elementor-element-361fbdc elementor-invisible elementor-widget elementor-widget-text-editor"
+							data-id="361fbdc" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="text-editor.default">
+							<p> We support you at every stage of the design journey with creativity, clarity,
+								and attention to detail, ensuring a seamless, efficient, and stress-free experience.</p>
+						</div>
+						<div class="elementor-element elementor-element-09cdcf4 ekit-equal-height-disable elementor-invisible elementor-widget elementor-widget-elementskit-icon-box"
+							data-id="09cdcf4" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-icon-box.default">
+							<div class="ekit-wid-con"> <!-- link opening -->
+								<!-- end link opening -->
+
+								<div
+									class="elementskit-infobox text-left text-left icon-top-align elementor-animation-   ">
+									<div class="elementskit-box-header elementor-animation-">
+										<div class="elementskit-info-box-icon  ">
+										    <img src="image/design-thinking (1).png" alt="Architecture Icon" width="60px">
+										</div>
+									</div>
+									<div class="box-body">
+										<h3 class="elementskit-info-box-title">
+											Craftsmanship You Can Trust</h3>
+										<p>With skilled expertise and a deep understanding of design principles, we
+											approach every project with a commitment to precision and creativity. Our
+											team pays close attention to every detail, ensuring that each element is
+											thoughtfully planned and perfectly executed. We specialize in delivering
+											finely crafted interiors that seamlessly blend functionality with aesthetic
+											appeal, creating spaces that are both practical and visually inspiring.</p>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+						<div class="elementor-element elementor-element-e6737ef elementor-invisible elementor-widget elementor-widget-button"
+							data-id="e6737ef" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm"
+								href="contact-us/index.html">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">See Our Work</span>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-0ebb1a5 e-con-full e-flex e-con e-child"
+						data-id="0ebb1a5" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-6b428a2 e-con-full e-flex e-con e-child"
+							data-id="6b428a2" data-element_type="container" data-e-type="container">
+							
+							<div class="elementor-element elementor-element-4736ce8 at-shiny-glass-effect why-choose-image-1 at-image-animation at-animation-image-none elementor-widget elementor-widget-image"
+								data-id="4736ce8" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="image.default">
+								<img loading="lazy" decoding="async" width="450" height="474"
+									src="image/why-choose-img1.png" class="attachment-full size-full wp-image-857"
+									alt="" srcset="image/why-choose-img1.png 450w, image/why-choose-img1.png 285w"
+									sizes="(max-width: 450px) 100vw, 450px" />
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-d13474e e-con-full e-flex e-con e-child"
+							data-id="d13474e" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-7b8143d e-con-full e-flex e-con e-child"
+								data-id="7b8143d" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-33b0cde at-shiny-glass-effect why-choose-image-2 at-image-animation at-animation-image-none elementor-widget elementor-widget-image"
+									data-id="33b0cde" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="image.default">
+									<img loading="lazy" decoding="async" width="480" height="466"
+										src="image/why-choose-img2.png" class="attachment-full size-full wp-image-858"
+										alt="" srcset="image/why-choose-img2.png 480w, image/why-choose-img2.png 300w"
+										sizes="(max-width: 480px) 100vw, 480px" />
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-cd7d5b6 e-con-full e-flex e-con e-child"
+								data-id="cd7d5b6" data-element_type="container" data-e-type="container"
+								data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+								<div class="elementor-element elementor-element-5fbdd65 why-choose-counter-box elementor-widget elementor-widget-counter"
+									data-id="5fbdd65" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="counter.default">
+									<div class="elementor-counter">
+										<div class="elementor-counter-title">Hours of Design Work</div>
+										<div class="elementor-counter-number-wrapper">
+											<span class="elementor-counter-number-prefix"></span>
+											<span class="elementor-counter-number" data-duration="2000"
+												data-to-value="5000" data-from-value="0" data-delimiter=",">0</span>
+											<span class="elementor-counter-number-suffix">+</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-ekitparallax="{&quot;ekit_section_parallax_bg&quot;:&quot;yes&quot;,&quot;ekit_section_parallax_bg_speed&quot;:0.5,&quot;elementor_lazy_load&quot;:&quot;1&quot;}"
+			class="elementor-element elementor-element-b73a268 e-con-full e-flex e-con e-parent" data-id="b73a268"
+			data-element_type="container" data-e-type="container"
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-element elementor-element-0788184 intro-video-button elementor-widget elementor-widget-elementskit-video"
+				data-id="0788184" data-element_type="widget" data-e-type="widget"
+				data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+				data-widget_type="elementskit-video.default">
+				<div class="elementor-widget-container">
+					<div class="ekit-wid-con">
+						<div class="video-content" data-video-player="[]"
+							data-video-setting="{&quot;videoVolume&quot;:&quot;horizontal&quot;,&quot;startVolume&quot;:0.8000000000000000444089209850062616169452667236328125,&quot;videoType&quot;:&quot;iframe&quot;,&quot;videoClass&quot;:&quot;mfp-fade&quot;,&quot;popupIcon&quot;:{&quot;value&quot;:&quot;icon icon-cancel&quot;,&quot;library&quot;:&quot;ekiticons&quot;},&quot;videoStyle&quot;:&quot;popup&quot;,&quot;videoTypeName&quot;:&quot;youtube&quot;,&quot;autoplay&quot;:false,&quot;muted&quot;:false,&quot;loop&quot;:false}">
+
+							<a class="glow-ripple ekit-video-popup ekit-video-popup-btn"
+								href="https://www.youtube.com/embed/Y-x0efG1seA?feature=oembed?playlist=Y-x0efG1seA&amp;mute=0&amp;autoplay=0&amp;loop=no&amp;controls=0&amp;start=0&amp;end="
+								aria-label="video-popup">
+								<span class="ekit-video-popup-title">PLAY</span>
+
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-272365f e-flex e-con-boxed e-con e-parent" data-id="272365f"
+			data-element_type="container" data-e-type="container">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f6f6aa6 e-con-full e-flex e-con e-child"
+					data-id="f6f6aa6" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-89741b3 e-con-full e-flex e-con e-child"
+						data-id="89741b3" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-7666341 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+							data-id="7666341" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h3 class="elementor-heading-title elementor-size-default">How It Works</h3>
+						</div>
+						<div class="elementor-element elementor-element-62b2633 at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+							data-id="62b2633" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h2 class="elementor-heading-title elementor-size-default">BRINGING YOUR IDEAS
+								TO LIFE THROUGH DESIGN</h2>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-5a854e9 e-con-full e-flex e-con e-child"
+						data-id="5a854e9" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-7b06528 elementor-invisible elementor-widget elementor-widget-text-editor"
+							data-id="7b06528" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="text-editor.default">
+							<p>From planning to delivery, our structured approach guarantees thoughtful design,
+								accuracy, and seamless execution.</p>
+						</div>
+						<div class="elementor-element elementor-element-aecc471 elementor-invisible elementor-widget elementor-widget-button"
+							data-id="aecc471" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm"
+								href="contact-us/index.html">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">Contact Us</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-bad6cad e-con-full e-flex e-con e-child"
+					data-id="bad6cad" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-caea8df e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="caea8df" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;}">
+						<div class="elementor-element elementor-element-fe2e9a4 elementor-view-default elementor-widget elementor-widget-icon"
+							data-id="fe2e9a4" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+								<div class="elementor-icon">
+									<img src="image/find (1).png" alt="Architecture Icon" width="50px">
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-e7fdf89 e-con-full e-flex e-con e-child"
+							data-id="e7fdf89" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-487c750 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+								data-id="487c750" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="elementskit-icon-box.default">
+								<div class="ekit-wid-con"> <!-- link opening -->
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-   ">
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												Discovery </h3>
+											<p>We begin by understanding your lifestyle, preferences, & design goals.
+											</p>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-7c1ba1a elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="7c1ba1a" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Developing Strategic Design
+											Concepts</span>
+									</li>
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Creating Detailed Layout Plans</span>
+									</li>
+								</ul>
+							</div>
+							<div class="elementor-element elementor-element-07d1e4a at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+								data-id="07d1e4a" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="heading.default">
+								<h2 class="elementor-heading-title elementor-size-default">01</h2>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-8426518 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="8426518" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:100}">
+						<div class="elementor-element elementor-element-3d27536 elementor-view-default elementor-widget elementor-widget-icon"
+							data-id="3d27536" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+								<div class="elementor-icon">
+								<img src="image/plan (1).png" alt="Architecture Icon" width="50px">
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-b3ff741 e-con-full e-flex e-con e-child"
+							data-id="b3ff741" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-5c0fcda ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+								data-id="5c0fcda" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="elementskit-icon-box.default">
+								<div class="ekit-wid-con"> <!-- link opening -->
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-   ">
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												Planning </h3>
+											<p>We develop a clear design plan that aligns with your vision, needs, &
+												budget.</p>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-0dd067c elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="0dd067c" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Developing Strategic Design Concepts
+										</span>
+									</li>
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Creating Detailed Layout Plans</span>
+									</li>
+								</ul>
+							</div>
+							<div class="elementor-element elementor-element-c13d692 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+								data-id="c13d692" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="heading.default">
+								<h2 class="elementor-heading-title elementor-size-default">02</h2>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-a3bbc83 e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="a3bbc83" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:200}">
+						<div class="elementor-element elementor-element-1803e58 elementor-view-default elementor-widget elementor-widget-icon"
+							data-id="1803e58" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+								<div class="elementor-icon">
+									<img src="image/management (1).png" alt="Architecture Icon" width="50px">
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-3599ab1 e-con-full e-flex e-con e-child"
+							data-id="3599ab1" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-f3824fb ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+								data-id="f3824fb" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="elementskit-icon-box.default">
+								<div class="ekit-wid-con"> <!-- link opening -->
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-   ">
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												Execution </h3>
+											<p>We bring the design to life with precision, quality, & attention to
+												detail.</p>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-958426a elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="958426a" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Coordinating Design Implementation</span>
+									</li>
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Ensuring Quality & Precision </span>
+									</li>
+								</ul>
+							</div>
+							<div class="elementor-element elementor-element-d163276 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+								data-id="d163276" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="heading.default">
+								<h2 class="elementor-heading-title elementor-size-default">03</h2>
+							</div>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-0c830db e-con-full e-flex elementor-invisible e-con e-child"
+						data-id="0c830db" data-element_type="container" data-e-type="container"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
+						<div class="elementor-element elementor-element-8cd6e10 elementor-view-default elementor-widget elementor-widget-icon"
+							data-id="8cd6e10" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+								<div class="elementor-icon">
+								<img src="image/verification (1).png" alt="Architecture Icon" width="50px">
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-d6ccb4a e-con-full e-flex e-con e-child"
+							data-id="d6ccb4a" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-cf4f012 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+								data-id="cf4f012" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="elementskit-icon-box.default">
+								<div class="ekit-wid-con"> <!-- link opening -->
+									<!-- end link opening -->
+
+									<div
+										class="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-   ">
+										<div class="box-body">
+											<h3 class="elementskit-info-box-title">
+												Completion </h3>
+											<p>We deliver a finished space that reflects your vision, style, &
+												expectations.
+											</p>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-d366a59 elementor-align-start elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+								data-id="d366a59" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="icon-list.default">
+								<ul class="elementor-icon-list-items">
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Finalizing Every Design Detail</span>
+									</li>
+									<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"
+												viewBox="0 0 5 5" fill="none">
+												<rect width="5" height="5" fill="url(#paint0_linear_540_2)"></rect>
+												<defs>
+													<linearGradient id="paint0_linear_540_2" x1="0" y1="2.5" x2="5"
+														y2="2.5" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#BDAD7B"></stop>
+														<stop offset="1" stop-color="#615328"></stop>
+													</linearGradient>
+												</defs>
+											</svg> </span>
+										<span class="elementor-icon-list-text">Delivering a Ready-to-Enjoy Space</span>
+									</li>
+								</ul>
+							</div>
+							<div class="elementor-element elementor-element-48c67ca at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+								data-id="48c67ca" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="heading.default">
+								<h2 class="elementor-heading-title elementor-size-default">04</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="elementor-element elementor-element-8d9509f e-con-full e-flex e-con e-parent" data-id="8d9509f"
+			data-element_type="container" data-e-type="container"
+			data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-element elementor-element-5b9f76d e-flex e-con-boxed e-con e-child" data-id="5b9f76d"
+				data-element_type="container" data-e-type="container">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-4c9d213 e-con-full e-flex e-con e-child"
+						data-id="4c9d213" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-5ca8ce9 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+							data-id="5ca8ce9" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h3 class="elementor-heading-title elementor-size-default">Our Projects</h3>
+						</div>
+						<div class="elementor-element elementor-element-2e82b27 at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+							data-id="2e82b27" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="heading.default">
+							<h2 class="elementor-heading-title elementor-size-default">PROFESSIONAL DESIGN SERVICES THAT
+								CREATE STUNNING SPACES</h2>
+						</div>
+					</div>
+					<div class="elementor-element elementor-element-a22b29a e-con-full e-flex e-con e-child"
+						data-id="a22b29a" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-241b695 elementor-invisible elementor-widget elementor-widget-text-editor"
+							data-id="241b695" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="text-editor.default">
+							<p> We deliver complete design solutions focused on enhancing aesthetics, maximizing
+								functionality, and turning your vision into reality.</p>
+						</div>
+						<div class="elementor-element elementor-element-bd6e4e7 elementor-invisible elementor-widget elementor-widget-button"
+							data-id="bd6e4e7" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="button.default">
+							<a class="elementor-button elementor-button-link elementor-size-sm"
+								href="projects/index.html">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+											viewBox="0 0 12 12" fill="currentColor">
+											<path
+												d="M11.749 0.251049C12.0838 0.58578 12.0838 1.1285 11.749 1.46323L2.03476 11.1775C1.70003 11.5122 1.15731 11.5122 0.822582 11.1775C0.48785 10.8427 0.48785 10.3001 0.822582 9.96537L10.5369 0.251049C10.8716 -0.0836829 11.4143 -0.0836829 11.749 0.251049Z">
+											</path>
+											<path
+												d="M0 0.857143C0 0.38376 0.38376 0 0.857143 0H11.1429C11.6162 0 12 0.38376 12 0.857143V11.1429C12 11.6162 11.6162 12 11.1429 12C10.6695 12 10.2857 11.6162 10.2857 11.1429V1.71429H0.857143C0.38376 1.71429 0 1.33053 0 0.857143Z">
+											</path>
+										</svg> </span>
+									<span class="elementor-button-text">View All Projects</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-element elementor-element-f5c20b4 e-con-full e-flex e-con e-child" data-id="f5c20b4"
+				data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-f78bf20 elementor-widget elementor-widget-at-projects-slider"
+					data-id="f78bf20" data-element_type="widget" data-e-type="widget"
+					data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+					data-widget_type="at-projects-slider.default">
+					<div class="elementor-widget-container">
+
+						<div class="at-project-slider project-slider"
+							data-config="{&quot;rtl&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:false,&quot;pauseOnHover&quot;:true,&quot;autoplay&quot;:false,&quot;speed&quot;:1000,&quot;slidesPerGroup&quot;:1,&quot;slidesPerView&quot;:4,&quot;loop&quot;:true,&quot;spaceBetween&quot;:30,&quot;centeredSlides&quot;:false,&quot;breakpoints&quot;:{&quot;320&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1},&quot;768&quot;:{&quot;slidesPerView&quot;:2,&quot;slidesPerGroup&quot;:1},&quot;1025&quot;:{&quot;slidesPerView&quot;:4,&quot;slidesPerGroup&quot;:1},&quot;1441&quot;:{&quot;slidesPerView&quot;:4,&quot;slidesPerGroup&quot;:1}}}">
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="#">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="image/our-project-img1.png"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="image/our-project-img1.png 1024w, image/our-project-img1.png 300w, image/our-project-img1.png 768w, image/our-project-img1.png 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/luxe-penthouse-makeover/index.html">Premium
+															Apartment Makeover</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/luxury-interiors/index.html">Luxury
+																		Apartments
+																	</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="projects/modern-luxury-villa/index.html">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="image/our-project-img2.png"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="image/our-project-img2.png 1024w, image/our-project-img2.png 300w, image/our-project-img2.png 768w, image/our-project-img2.png 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/modern-luxury-villa/index.html">Modern Villa
+															Living</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/residential-interior/index.html">Modern
+																		Villas</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="projects/boutique-hotel-interiors/index.html">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="image/our-project-img3.png"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="image/our-project-img3.png 1024w, image/our-project-img3.png 300w, image/our-project-img3.png 768w, image/our-project-img3.png 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/boutique-hotel-interiors/index.html">Boutique
+															Commercial Interiors</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/commercial-interior/index.html">Boutique
+																		Interiors
+
+																	</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="projects/corporate-office-space/index.html">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="image/our-project-img4.png"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="image/our-project-img4.png 1024w, image/our-project-img4.png 300w, image/our-project-img4.png 768w, image/our-project-img4.png 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/corporate-office-space/index.html">Smart
+															Office Design</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/commercial-interior/index.html">Smart
+																		Offices
+																	</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="projects/contemporary-family-home/index.html">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="wp-content/uploads/2025/12/our-project-image-5-1024x683.jpg"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-5-1024x683.jpg 1024w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-5-300x200.jpg 300w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-5-768x512.jpg 768w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-5.jpg 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/contemporary-family-home/index.html">Contemporary
+															Family Home</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/luxury-interiors/index.html">Luxury
+																		Interiors</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="swiper-slide">
+											<div class="project-item ">
+												<div class="project-item-image">
+													<a href="projects/scenic-rooftop-garden/index.html">
+														<figure class="at-blog-shiny-glass-effect"><img loading="lazy"
+																decoding="async" width="800" height="534"
+																src="wp-content/uploads/2025/12/our-project-image-6-1024x683.jpg"
+																class="attachment-large size-large wp-post-image" alt=""
+																srcset="https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-6-1024x683.jpg 1024w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-6-300x200.jpg 300w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-6-768x512.jpg 768w, https://demo.awaikenthemes.com/luxine/wp-content/uploads/2025/12/our-project-image-6.jpg 1200w"
+																sizes="(max-width: 800px) 100vw, 800px" /></figure>
+													</a>
+												</div>
+												<div class="project-item-content">
+													<h2><a href="projects/scenic-rooftop-garden/index.html">Scenic
+															Rooftop Garden</a></h2>
+													<div class="project-item-tag">
+														<div class="projects_meta">
+															<ul>
+																<li><a
+																		href="project-category/luxury-interiors/index.html">Luxury
+																		Interiors</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="elementor-element elementor-element-27aa005 e-flex e-con-boxed elementor-invisible e-con e-child"
+				data-id="27aa005" data-element_type="container" data-e-type="container"
+				data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:100}">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-4fa8b34 e-con-full e-flex e-con e-child"
+						data-id="4fa8b34" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-408e31d e-con-full e-flex e-con e-child"
+							data-id="408e31d" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-cc7a24d at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+								data-id="cc7a24d" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="heading.default">
+								<h3 class="elementor-heading-title elementor-size-default">Trusted By More Than 100+
+									Companies</h3>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-3cbaf8a e-con-full e-flex e-con e-child"
+							data-id="3cbaf8a" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-f28b56d project-company-slider elementor-widget elementor-widget-image-carousel"
+								data-id="f28b56d" data-element_type="widget" data-e-type="widget"
+								data-settings="{&quot;slides_to_show&quot;:&quot;5&quot;,&quot;slides_to_show_tablet&quot;:&quot;3&quot;,&quot;slides_to_show_mobile&quot;:&quot;2&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;image_spacing_custom_laptop&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+								data-widget_type="image-carousel.default">
+								<div class="elementor-image-carousel-wrapper swiper" role="region"
+									aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+									<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+										<div class="swiper-slide" role="group" aria-roledescription="slide"
+											aria-label="1 of 5">
+											<figure class="swiper-slide-inner"><img decoding="async"
+													class="swiper-slide-image"
+													src="image/scroll-logo.png"
+													alt="company-slider-logo-1" /></figure>
+										</div>
+										<div class="swiper-slide" role="group" aria-roledescription="slide"
+											aria-label="2 of 5">
+											<figure class="swiper-slide-inner"><img decoding="async"
+													class="swiper-slide-image"
+													src="image/scroll-logo.png"
+													alt="company-slider-logo-2" /></figure>
+										</div>
+										<div class="swiper-slide" role="group" aria-roledescription="slide"
+											aria-label="3 of 5">
+											<figure class="swiper-slide-inner"><img decoding="async"
+													class="swiper-slide-image"
+													src="image/scroll-logo.png"
+													alt="company-slider-logo-3" /></figure>
+										</div>
+										<div class="swiper-slide" role="group" aria-roledescription="slide"
+											aria-label="4 of 5">
+											<figure class="swiper-slide-inner"><img decoding="async"
+													class="swiper-slide-image"
+													src="image/scroll-logo.png"
+													alt="company-slider-logo-4" /></figure>
+										</div>
+										<div class="swiper-slide" role="group" aria-roledescription="slide"
+											aria-label="5 of 5">
+											<figure class="swiper-slide-inner"><img decoding="async"
+													class="swiper-slide-image"
+													src="image/scroll-logo.png"
+													alt="company-slider-logo-5" /></figure>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="elementor-element elementor-element-8aa7def e-flex e-con-boxed e-con e-parent" data-id="8aa7def"
+			data-element_type="container" data-e-type="container">
+			<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1a58817 e-con-full e-flex e-con e-child"
+					data-id="1a58817" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-b5c1cb0 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading"
+						data-id="b5c1cb0" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h3 class="elementor-heading-title elementor-size-default">Our Testimonials</h3>
+					</div>
+					<div class="elementor-element elementor-element-f014deb at-heading-animation at-animation-heading-style-3 elementor-widget elementor-widget-heading"
+						data-id="f014deb" data-element_type="widget" data-e-type="widget"
+						data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+						data-widget_type="heading.default">
+						<h2 class="elementor-heading-title elementor-size-default">VOICES OF APPRECIATION FROM OUR HAPPY
+							CLIENTS</h2>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-852d0fb e-con-full e-flex e-con e-child"
+					data-id="852d0fb" data-element_type="container" data-e-type="container">
+					<div class="elementor-element elementor-element-9053177 e-con-full e-flex e-con e-child"
+						data-id="9053177" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-c18c73a at-shiny-glass-effect testimonial-image image-height at-image-animation at-animation-image-none elementor-widget elementor-widget-image"
+							data-id="c18c73a" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="image.default">
+							<img loading="lazy" decoding="async" width="480" height="556"
+								src="image/our-testimonial-img.png" class="attachment-full size-full wp-image-4264"
+								alt="" srcset="image/our-testimonial-img.png 480w, image/our-testimonial-img.png 259w"
+								sizes="(max-width: 480px) 100vw, 480px" />
+						</div>
+
+					</div>
+					<div class="elementor-element elementor-element-ff3fa76 e-con-full e-flex e-con e-child"
+						data-id="ff3fa76" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-10e01d5 testimonial-slider elementor-widget elementor-widget-elementskit-testimonial"
+							data-id="10e01d5" data-element_type="widget" data-e-type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-testimonial.default">
+							<div class="ekit-wid-con">
+								<div class="elementskit-testimonial-slider arrow_inside "
+									data-config="{&quot;rtl&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:false,&quot;pauseOnHover&quot;:true,&quot;autoplay&quot;:true,&quot;speed&quot;:1000,&quot;slidesPerGroup&quot;:1,&quot;slidesPerView&quot;:2,&quot;loop&quot;:true,&quot;spaceBetween&quot;:30,&quot;breakpoints&quot;:{&quot;320&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;768&quot;:{&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30},&quot;1024&quot;:{&quot;slidesPerView&quot;:2,&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:30}}}">
+									<div class="ekit-main-swiper swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="swiper-slide-inner">
+													<div class="elementskit-testimonial-inner">
+														<div
+															class="elementskit-single-testimonial-slider  ekit_testimonial_style_2">
+															<div class="elementskit-commentor-content">
+																<div class="elementskit-client_logo">
+
+																</div>
+																<p>“ Working with this team was one of the best
+																	decisions we made during home renovation. Challenges
+																	They took time to truly understand our lifestyle
+																	&amp; the challenges we faced with space “</p>
+																<span class="elementskit-border-hr"></span>
+																<span class="elementskit-profile-info">
+																	<strong class="elementskit-author-name">Brooklyn
+																		Simmons</strong>
+																	<span
+																		class="elementskit-author-des">Homeowner</span>
+																</span>
+															</div>
+															<div
+																class="elementskit-watermark-icon  ekit_watermark_icon_custom_position ">
+																<svg xmlns="http://www.w3.org/2000/svg" width="50"
+																	height="50" viewBox="0 0 50 50" fill="none">
+																	<g clip-path="url(#clip0_392_4824)">
+																		<path
+																			d="M17.459 23.0766H10.7422C9.9425 23.0766 9.26267 22.7963 8.70288 22.2353C8.14341 21.6743 7.8633 20.9933 7.8633 20.1918V19.2307C7.8633 17.1071 8.61308 15.2944 10.1125 13.7918C11.6119 12.2897 13.4212 11.5384 15.5401 11.5384H17.459C17.9786 11.5384 18.4283 11.348 18.8082 10.9675C19.188 10.5869 19.3779 10.1363 19.3779 9.61546V5.76895C19.3779 5.2482 19.1879 4.79723 18.8082 4.41655C18.4284 4.03641 17.9788 3.8457 17.459 3.8457H15.5401C13.4609 3.8457 11.4772 4.25174 9.58793 5.06265C7.69883 5.87409 6.06484 6.97096 4.68533 8.35336C3.30592 9.73512 2.21166 11.3726 1.40202 13.2659C0.592374 15.1589 0.1875 17.1472 0.1875 19.2306V40.3839C0.1875 41.9873 0.746972 43.3488 1.86644 44.471C2.98602 45.5926 4.34568 46.1533 5.9448 46.1533H17.4597C19.0587 46.1533 20.418 45.5926 21.5377 44.471C22.6569 43.3488 23.2167 41.9873 23.2167 40.3839V28.846C23.2167 27.2429 22.6569 25.8814 21.5369 24.7591C20.4178 23.6376 19.058 23.0766 17.459 23.0766Z"
+																			fill="black" fill-opacity="0.08"></path>
+																		<path
+																			d="M48.4046 24.7591C47.2855 23.6376 45.9261 23.0766 44.3267 23.0766H37.61C36.8107 23.0766 36.1303 22.7963 35.5714 22.2353C35.0114 21.6743 34.7319 20.9933 34.7319 20.1918V19.2307C34.7319 17.1071 35.4816 15.2944 36.9804 13.7918C38.4792 12.2897 40.2883 11.5384 42.4083 11.5384H44.3268C44.8466 11.5384 45.2965 11.348 45.6762 10.9675C46.0556 10.5869 46.2462 10.1363 46.2462 9.61546V5.76895C46.2462 5.2482 46.0557 4.79723 45.6762 4.41655C45.2966 4.03641 44.8467 3.8457 44.3268 3.8457H42.4083C40.3279 3.8457 38.3447 4.25174 36.4549 5.06265C34.5661 5.87409 32.9327 6.97096 31.5531 8.35336C30.1736 9.73512 29.0788 11.3726 28.2695 13.2659C27.4601 15.1589 27.0547 17.1472 27.0547 19.2306V40.3839C27.0547 41.9873 27.6147 43.3488 28.7338 44.471C29.8531 45.5926 31.2124 46.1533 32.8118 46.1533H44.3261C45.9255 46.1533 47.2847 45.5926 48.4039 44.471C49.5239 43.3488 50.0827 41.9873 50.0827 40.3839V28.846C50.0828 27.2428 49.5239 25.8814 48.4046 24.7591Z"
+																			fill="black" fill-opacity="0.08"></path>
+																	</g>
+																	<defs>
+																		<clipPath id="clip0_392_4824">
+																			<rect width="50" height="50" fill="white">
+																			</rect>
+																		</clipPath>
+																	</defs>
+																</svg>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="swiper-slide-inner">
+													<div class="elementskit-testimonial-inner">
+														<div
+															class="elementskit-single-testimonial-slider  ekit_testimonial_style_2">
+															<div class="elementskit-commentor-content">
+																<div class="elementskit-client_logo">
+
+																</div>
+																<p>“ Their team redesigned our office space with
+																	creativity and precision environment. The result is
+																	a functional, modern environment that has improved
+																	both productivity and aesthetics. ”</p>
+																<span class="elementskit-border-hr"></span>
+																<span class="elementskit-profile-info">
+																	<strong class="elementskit-author-name">Leslie
+																		Alexander</strong>
+																	<span class="elementskit-author-des">Business
+																		Owner</span>
+																</span>
+															</div>
+															<div
+																class="elementskit-watermark-icon  ekit_watermark_icon_custom_position ">
+																<svg xmlns="http://www.w3.org/2000/svg" width="50"
+																	height="50" viewBox="0 0 50 50" fill="none">
+																	<g clip-path="url(#clip0_392_4824)">
+																		<path
+																			d="M17.459 23.0766H10.7422C9.9425 23.0766 9.26267 22.7963 8.70288 22.2353C8.14341 21.6743 7.8633 20.9933 7.8633 20.1918V19.2307C7.8633 17.1071 8.61308 15.2944 10.1125 13.7918C11.6119 12.2897 13.4212 11.5384 15.5401 11.5384H17.459C17.9786 11.5384 18.4283 11.348 18.8082 10.9675C19.188 10.5869 19.3779 10.1363 19.3779 9.61546V5.76895C19.3779 5.2482 19.1879 4.79723 18.8082 4.41655C18.4284 4.03641 17.9788 3.8457 17.459 3.8457H15.5401C13.4609 3.8457 11.4772 4.25174 9.58793 5.06265C7.69883 5.87409 6.06484 6.97096 4.68533 8.35336C3.30592 9.73512 2.21166 11.3726 1.40202 13.2659C0.592374 15.1589 0.1875 17.1472 0.1875 19.2306V40.3839C0.1875 41.9873 0.746972 43.3488 1.86644 44.471C2.98602 45.5926 4.34568 46.1533 5.9448 46.1533H17.4597C19.0587 46.1533 20.418 45.5926 21.5377 44.471C22.6569 43.3488 23.2167 41.9873 23.2167 40.3839V28.846C23.2167 27.2429 22.6569 25.8814 21.5369 24.7591C20.4178 23.6376 19.058 23.0766 17.459 23.0766Z"
+																			fill="black" fill-opacity="0.08"></path>
+																		<path
+																			d="M48.4046 24.7591C47.2855 23.6376 45.9261 23.0766 44.3267 23.0766H37.61C36.8107 23.0766 36.1303 22.7963 35.5714 22.2353C35.0114 21.6743 34.7319 20.9933 34.7319 20.1918V19.2307C34.7319 17.1071 35.4816 15.2944 36.9804 13.7918C38.4792 12.2897 40.2883 11.5384 42.4083 11.5384H44.3268C44.8466 11.5384 45.2965 11.348 45.6762 10.9675C46.0556 10.5869 46.2462 10.1363 46.2462 9.61546V5.76895C46.2462 5.2482 46.0557 4.79723 45.6762 4.41655C45.2966 4.03641 44.8467 3.8457 44.3268 3.8457H42.4083C40.3279 3.8457 38.3447 4.25174 36.4549 5.06265C34.5661 5.87409 32.9327 6.97096 31.5531 8.35336C30.1736 9.73512 29.0788 11.3726 28.2695 13.2659C27.4601 15.1589 27.0547 17.1472 27.0547 19.2306V40.3839C27.0547 41.9873 27.6147 43.3488 28.7338 44.471C29.8531 45.5926 31.2124 46.1533 32.8118 46.1533H44.3261C45.9255 46.1533 47.2847 45.5926 48.4039 44.471C49.5239 43.3488 50.0827 41.9873 50.0827 40.3839V28.846C50.0828 27.2428 49.5239 25.8814 48.4046 24.7591Z"
+																			fill="black" fill-opacity="0.08"></path>
+																	</g>
+																	<defs>
+																		<clipPath id="clip0_392_4824">
+																			<rect width="50" height="50" fill="white">
+																			</rect>
+																		</clipPath>
+																	</defs>
+																</svg>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="swiper-slide-inner">
+													<div class="elementskit-testimonial-inner">
+														<div
+															class="elementskit-single-testimonial-slider  ekit_testimonial_style_2">
+															<div class="elementskit-commentor-content">
+																<div class="elementskit-client_logo">
+
+																</div>
+																<p>“ Our stay was magical! Waking up to the sounds
+																	nature while enjoying comfort of bed was the best of
+																	worlds. The team made everything seamless, from
+																	check-in to organizing.”</p>
+																<span class="elementskit-border-hr"></span>
+																<span class="elementskit-profile-info">
+																	<strong class="elementskit-author-name">Kristin
+																		Watson</strong>
+																	<span
+																		class="elementskit-author-des">Homeowner</span>
+																</span>
+															</div>
+															<div
+																class="elementskit-watermark-icon  ekit_watermark_icon_custom_position ">
+																<svg xmlns="http://www.w3.org/2000/svg" width="50"
+																	height="50" viewBox="0 0 50 50" fill="none">
+																	<g clip-path="url(#clip0_392_4824)">
+																		<path
+																			d="M17.459 23.0766H10.7422C9.9425 23.0766 9.26267 22.7963 8.70288 22.2353C8.14341 21.6743 7.8633 20.9933 7.8633 20.1918V19.2307C7.8633 17.1071 8.61308 15.2944 10.1125 13.7918C11.6119 12.2897 13.4212 11.5384 15.5401 11.5384H17.459C17.9786 11.5384 18.4283 11.348 18.8082 10.9675C19.188 10.5869 19.3779 10.1363 19.3779 9.61546V5.76895C19.3779 5.2482 19.1879 4.79723 18.8082 4.41655C18.4284 4.03641 17.9788 3.8457 17.459 3.8457H15.5401C13.4609 3.8457 11.4772 4.25174 9.58793 5.06265C7.69883 5.87409 6.06484 6.97096 4.68533 8.35336C3.30592 9.73512 2.21166 11.3726 1.40202 13.2659C0.592374 15.1589 0.1875 17.1472 0.1875 19.2306V40.3839C0.1875 41.9873 0.746972 43.3488 1.86644 44.471C2.98602 45.5926 4.34568 46.1533 5.9448 46.1533H17.4597C19.0587 46.1533 20.418 45.5926 21.5377 44.471C22.6569 43.3488 23.2167 41.9873 23.2167 40.3839V28.846C23.2167 27.2429 22.6569 25.8814 21.5369 24.7591C20.4178 23.6376 19.058 23.0766 17.459 23.0766Z"
+																			fill="black" fill-opacity="0.08"></path>
+																		<path
+																			d="M48.4046 24.7591C47.2855 23.6376 45.9261 23.0766 44.3267 23.0766H37.61C36.8107 23.0766 36.1303 22.7963 35.5714 22.2353C35.0114 21.6743 34.7319 20.9933 34.7319 20.1918V19.2307C34.7319 17.1071 35.4816 15.2944 36.9804 13.7918C38.4792 12.2897 40.2883 11.5384 42.4083 11.5384H44.3268C44.8466 11.5384 45.2965 11.348 45.6762 10.9675C46.0556 10.5869 46.2462 10.1363 46.2462 9.61546V5.76895C46.2462 5.2482 46.0557 4.79723 45.6762 4.41655C45.2966 4.03641 44.8467 3.8457 44.3268 3.8457H42.4083C40.3279 3.8457 38.3447 4.25174 36.4549 5.06265C34.5661 5.87409 32.9327 6.97096 31.5531 8.35336C30.1736 9.73512 29.0788 11.3726 28.2695 13.2659C27.4601 15.1589 27.0547 17.1472 27.0547 19.2306V40.3839C27.0547 41.9873 27.6147 43.3488 28.7338 44.471C29.8531 45.5926 31.2124 46.1533 32.8118 46.1533H44.3261C45.9255 46.1533 47.2847 45.5926 48.4039 44.471C49.5239 43.3488 50.0827 41.9873 50.0827 40.3839V28.846C50.0828 27.2428 49.5239 25.8814 48.4046 24.7591Z"
+																			fill="black" fill-opacity="0.08"></path>
+																	</g>
+																	<defs>
+																		<clipPath id="clip0_392_4824">
+																			<rect width="50" height="50" fill="white">
+																			</rect>
+																		</clipPath>
+																	</defs>
+																</svg>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="ekit-template-content-markup ekit-template-content-footer ekit-template-content-theme-support">
+		<div data-elementor-type="wp-post" data-elementor-id="851" class="elementor elementor-851">
+			<div class="elementor-element elementor-element-9326add e-flex e-con-boxed e-con e-parent" data-id="9326add"
+				data-element_type="container" data-e-type="container"
+				data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-13e6831 e-con-full e-flex e-con e-child"
+						data-id="13e6831" data-element_type="container" data-e-type="container">
+						<div class="elementor-element elementor-element-d789e37 e-con-full e-flex e-con e-child"
+							data-id="d789e37" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-f7f2e6e e-con-full e-flex e-con e-child"
+								data-id="f7f2e6e" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-4370126 at-image-animation at-animation-image-none at-none elementor-widget elementor-widget-image"
+									data-id="4370126" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="image.default">
+									<img width="146" height="50" src="image/logo.png"
+										class="attachment-full size-full wp-image-37" alt="" />
+								</div>
+								<div class="elementor-element elementor-element-d6115dc elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-text-editor"
+									data-id="d6115dc" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="text-editor.default">
+									<p>Absolutely. We can incorporate your existing furniture, décor, and layout
+										preferences into the new design to maintain continuity and budget efficiency.
+									</p>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-0b6c010 e-con-full e-flex e-con e-child"
+								data-id="0b6c010" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-6db98e2 elementor-widget elementor-widget-elementskit-social-media"
+									data-id="6db98e2" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="elementskit-social-media.default">
+									<div class="elementor-widget-container">
+										<div class="ekit-wid-con">
+											<ul class="ekit_social_media">
+												<li class="elementor-repeater-item-5813ccc">
+													<a href="#" aria-label="Facebook" class="facebook">
+
+														<i class="fab fa-facebook-f"></i>
+													</a>
+												</li>
+												<li class="elementor-repeater-item-d54d368">
+													<a href="#" aria-label="Twitter" class="dribbble">
+
+														<i class="fab fa-twitter"></i>
+													</a>
+												</li>
+												<li class="elementor-repeater-item-3304f8a">
+													<a href="#" aria-label="Instagram" class="1">
+
+														<i class="fab fa-instagram"></i>
+													</a>
+												</li>
+												<li class="elementor-repeater-item-b2c037c">
+													<a href="#" aria-label="Linkedin" class="in">
+
+														<i class="fab fa-linkedin-in"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-2c1f7ba e-con-full e-flex e-con e-child"
+							data-id="2c1f7ba" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-1cf4972 e-con-full e-flex e-con e-child"
+								data-id="1cf4972" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-43e2f24 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+									data-id="43e2f24" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="elementskit-icon-box.default">
+									<div class="ekit-wid-con"> <!-- link opening -->
+										<!-- end link opening -->
+
+										<div
+											class="elementskit-infobox text- text- icon-lef-right-aligin elementor-animation-   ">
+											<div class="box-body">
+												<h3 class="elementskit-info-box-title">
+													Subscribe for Architecture &amp; Interior Updates </h3>
+												<p>Absolutely. We can incorporate your existing furniture, décor, and
+													layout preferences into the new design</p>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+								<div class="elementor-element elementor-element-c9d1079 footer-form elementor-widget elementor-widget-elementskit-contact-form7"
+									data-id="c9d1079" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="elementskit-contact-form7.default">
+									<div class="ekit-wid-con">
+										<div class="ekit-form">
+											<div class="wpcf7 no-js" id="wpcf7-f2740-o1" lang="en-US" dir="ltr"
+												data-wpcf7-id="2740">
+												<div class="screen-reader-response">
+													<p role="status" aria-live="polite" aria-atomic="true"></p>
+													<ul></ul>
+												</div>
+												<form action="https://demo.awaikenthemes.com/luxine/#wpcf7-f2740-o1"
+													method="post" class="wpcf7-form init" aria-label="Contact form"
+													novalidate="novalidate" data-status="init">
+													<fieldset class="hidden-fields-container"><input type="hidden"
+															name="_wpcf7" value="2740" /><input type="hidden"
+															name="_wpcf7_version" value="6.1.5" /><input type="hidden"
+															name="_wpcf7_locale" value="en_US" /><input type="hidden"
+															name="_wpcf7_unit_tag" value="wpcf7-f2740-o1" /><input
+															type="hidden" name="_wpcf7_container_post"
+															value="0" /><input type="hidden"
+															name="_wpcf7_posted_data_hash" value="" />
+													</fieldset>
+													<div class="form-group">
+														<div class="email-field">
+															<p><span class="wpcf7-form-control-wrap"
+																	data-name="email"><input size="40" maxlength="400"
+																		class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email form-control"
+																		id="email" aria-required="true"
+																		aria-invalid="false"
+																		placeholder="Enter Email Address*" value=""
+																		type="email" name="email" /></span>
+															</p>
+														</div>
+														<div class="newsletter-btn">
+															<p><input
+																	class="wpcf7-form-control wpcf7-submit has-spinner btn-default"
+																	id="msgSubmit" type="submit" value="submit" />
+															</p>
+														</div>
+													</div>
+													<div class="wpcf7-response-output" aria-hidden="true"></div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-74808e2 e-con-full e-flex e-con e-child"
+								data-id="74808e2" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-7be1334 e-con-full e-flex e-con e-child"
+									data-id="7be1334" data-element_type="container" data-e-type="container">
+									<div class="elementor-element elementor-element-11feef6 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+										data-id="11feef6" data-element_type="widget" data-e-type="widget"
+										data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+										data-widget_type="heading.default">
+										<h3 class="elementor-heading-title elementor-size-default">Quick Links</h3>
+									</div>
+									<div class="elementor-element elementor-element-0fa0a73 footer-link elementor-widget elementor-widget-ekit-vertical-menu"
+										data-id="0fa0a73" data-element_type="widget" data-e-type="widget"
+										data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+										data-widget_type="ekit-vertical-menu.default">
+										<div class="ekit-wid-con">
+											<div class="ekit-vertical-main-menu-wraper   badge-position-left">
+												<div class="ekit-vertical-menu-container">
+													<ul id="menu-footer-menu"
+														class="ekit-vertical-navbar-nav submenu-click-on-icon">
+														<li id="menu-item-844"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item menu-item-844 nav-item elementskit-mobile-builder-content active"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link active">Home</a></li>
+														<li id="menu-item-846"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-846 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">About Us</a></li>
+														<li id="menu-item-7763"
+															class="menu-item menu-item-type-post_type_archive menu-item-object-awaiken-project menu-item-7763 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Services</a></li>
+														<li id="menu-item-7765"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7765 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Gallery</a></li>
+														<li id="menu-item-7765"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7765 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Contact Us</a></li>
+													</ul>
+
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-element elementor-element-83b2fe9 e-con-full e-flex e-con e-child"
+									data-id="83b2fe9" data-element_type="container" data-e-type="container">
+									<div class="elementor-element elementor-element-0d73187 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+										data-id="0d73187" data-element_type="widget" data-e-type="widget"
+										data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+										data-widget_type="heading.default">
+										<h3 class="elementor-heading-title elementor-size-default">Our Services</h3>
+									</div>
+									<div class="elementor-element elementor-element-da3ea4a footer-link elementor-widget elementor-widget-ekit-vertical-menu"
+										data-id="da3ea4a" data-element_type="widget" data-e-type="widget"
+										data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+										data-widget_type="ekit-vertical-menu.default">
+										<div class="ekit-wid-con">
+											<div class="ekit-vertical-main-menu-wraper   badge-position-left">
+												<div class="ekit-vertical-menu-container">
+													<ul id="menu-service-menu"
+														class="ekit-vertical-navbar-nav submenu-click-on-icon">
+														<li id="menu-item-10532"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10532 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Living Space Architecture</a>
+														</li>
+														<li id="menu-item-10534"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10534 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Workplace Design
+																Solutions</a></li>
+														<li id="menu-item-10535"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10535 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Interior Planning &
+																Styling</a>
+														</li>
+														<li id="menu-item-10533"
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10533 nav-item elementskit-mobile-builder-content"
+															data-vertical-menu=750px><a href="#"
+																class="ekit-menu-nav-link">Design to Build
+																Management</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-element elementor-element-ed7ba34 e-con-full e-flex e-con e-child"
+									data-id="ed7ba34" data-element_type="container" data-e-type="container">
+									<div class="elementor-element elementor-element-c661c57 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading"
+										data-id="c661c57" data-element_type="widget" data-e-type="widget"
+										data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+										data-widget_type="heading.default">
+										<h3 class="elementor-heading-title elementor-size-default">Get In Touch</h3>
+									</div>
+									<div class="elementor-element elementor-element-5455e57 e-con-full e-flex e-con e-child"
+										data-id="5455e57" data-element_type="container" data-e-type="container">
+										<div class="elementor-element elementor-element-3a60b82 icon-box-gradient ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+											data-id="3a60b82" data-element_type="widget" data-e-type="widget"
+											data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+											data-widget_type="elementskit-icon-box.default">
+											<div class="ekit-wid-con"> <!-- link opening -->
+												<a href="mailto:eagle@gmail.com" class="ekit_global_links">
+													<!-- end link opening -->
+
+													<div
+														class="elementskit-infobox text-left text-left icon-lef-right-aligin elementor-animation- media  ">
+														<div class="elementskit-box-header elementor-animation-">
+															<div class="elementskit-info-box-icon  text-center">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20" fill="currentColor">
+																	<path
+																		d="M18.2422 2.96875H1.75781C0.786602 2.96875 0 3.76023 0 4.72656V15.2734C0 16.2455 0.792383 17.0312 1.75781 17.0312H18.2422C19.2053 17.0312 20 16.2488 20 15.2734V4.72656C20 3.76195 19.2165 2.96875 18.2422 2.96875ZM17.996 4.14062C17.6369 4.49785 11.4564 10.6458 11.243 10.8581C10.9109 11.1901 10.4695 11.3729 10 11.3729C9.53047 11.3729 9.08906 11.1901 8.75594 10.857C8.61242 10.7142 2.50012 4.63414 2.00398 4.14062H17.996ZM1.17188 15.0349V4.96582L6.23586 10.0031L1.17188 15.0349ZM2.00473 15.8594L7.06672 10.8296L7.9284 11.6867C8.48176 12.2401 9.21746 12.5448 10 12.5448C10.7825 12.5448 11.5182 12.2401 12.0705 11.6878L12.9333 10.8296L17.9953 15.8594H2.00473ZM18.8281 15.0349L13.7641 10.0031L18.8281 4.96582V15.0349Z">
+																	</path>
+																</svg>
+															</div>
+														</div>
+														<div class="box-body">
+															<h3 class="elementskit-info-box-title">
+																E-mail Us </h3>
+															<p>eagle@gmail.com</p>
+														</div>
+
+
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-5e83ca9 icon-box-gradient ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box"
+											data-id="5e83ca9" data-element_type="widget" data-e-type="widget"
+											data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+											data-widget_type="elementskit-icon-box.default">
+											<div class="ekit-wid-con"> <!-- link opening -->
+												<a href="tel:+91 70506 12345" class="ekit_global_links">
+													<!-- end link opening -->
+
+													<div
+														class="elementskit-infobox text-left text-left icon-lef-right-aligin elementor-animation- media  ">
+														<div class="elementskit-box-header elementor-animation-">
+															<div class="elementskit-info-box-icon  text-center">
+																<svg xmlns="http://www.w3.org/2000/svg" width="20"
+																	height="20" viewBox="0 0 20 20" fill="currentColor">
+																	<mask id="mask0_1313_59" style="mask-type:luminance"
+																		maskUnits="userSpaceOnUse" x="0" y="0"
+																		width="20" height="20">
+																		<path d="M20 0H0V20H20V0Z"></path>
+																	</mask>
+																	<path
+																		d="M15.8064 12.3887C15.397 11.9624 14.9031 11.7344 14.3797 11.7344C13.8605 11.7344 13.3624 11.9581 12.936 12.3845L11.6022 13.7141C11.4924 13.655 11.3827 13.6002 11.2771 13.5453C11.1252 13.4693 10.9816 13.3975 10.8592 13.3216C9.60978 12.528 8.47429 11.4938 7.38524 10.1557C6.8576 9.48877 6.50302 8.92736 6.24553 8.35751C6.59166 8.04092 6.91247 7.71168 7.22483 7.39509C7.34303 7.2769 7.46122 7.15448 7.57941 7.03629C8.46585 6.14985 8.46585 5.00171 7.57941 4.11527L6.42704 2.9629C6.29618 2.83204 6.16111 2.69697 6.03447 2.56189C5.78121 2.30018 5.51527 2.03003 5.2409 1.77676C4.83145 1.37153 4.3418 1.15625 3.82682 1.15625C3.31184 1.15625 2.81375 1.37153 2.39163 1.77676C2.38741 1.78098 2.38741 1.78098 2.38319 1.7852L0.948004 3.23305C0.407699 3.77336 0.099556 4.43185 0.0320178 5.19588C-0.0692895 6.42845 0.293728 7.5766 0.572323 8.32796C1.25615 10.1726 2.27766 11.8822 3.80149 13.7141C5.65035 15.9218 7.87489 17.6651 10.416 18.8935C11.3869 19.3536 12.6828 19.8981 14.1306 19.991C14.2193 19.9952 14.3121 19.9994 14.3965 19.9994C15.3716 19.9994 16.1905 19.6491 16.8321 18.9526C16.8364 18.9441 16.8448 18.9399 16.849 18.9315C17.0685 18.6655 17.3218 18.4249 17.5877 18.1674C17.7692 17.9944 17.955 17.8129 18.1365 17.6229C18.5544 17.1881 18.7739 16.6816 18.7739 16.1624C18.7739 15.639 18.5501 15.1367 18.1238 14.7145L15.8064 12.3887ZM17.3176 16.8336C17.3134 16.8378 17.3134 16.8336 17.3176 16.8336C17.1529 17.0108 16.9841 17.1712 16.8026 17.3485C16.5282 17.6102 16.2496 17.8846 15.9879 18.1928C15.5616 18.6486 15.0593 18.8639 14.4008 18.8639C14.3375 18.8639 14.2699 18.8639 14.2066 18.8597C12.9529 18.7795 11.7879 18.2898 10.9141 17.872C8.52494 16.7154 6.42704 15.0733 4.68371 12.9923C3.2443 11.2574 2.28188 9.6534 1.64449 7.93117C1.25193 6.88011 1.10841 6.06121 1.17172 5.28874C1.21394 4.79487 1.40389 4.38542 1.75424 4.03507L3.19365 2.59566C3.40048 2.40149 3.61998 2.29596 3.83526 2.29596C4.10119 2.29596 4.31647 2.45636 4.45155 2.59144C4.45577 2.59566 4.45999 2.59988 4.46421 2.6041C4.7217 2.8447 4.96653 3.09375 5.22402 3.35968C5.35487 3.49476 5.48995 3.62984 5.62502 3.76913L6.77739 4.9215C7.22483 5.36894 7.22483 5.78262 6.77739 6.23006C6.65498 6.35247 6.53679 6.47488 6.41438 6.59307C6.0598 6.95609 5.72211 7.29378 5.35487 7.62303C5.34643 7.63147 5.33799 7.63569 5.33377 7.64414C4.97075 8.00715 5.03829 8.36173 5.11427 8.60233C5.11849 8.615 5.12271 8.62766 5.12693 8.64033C5.42663 9.36636 5.84874 10.0502 6.49036 10.8649L6.49458 10.8691C7.65961 12.3043 8.88796 13.4229 10.2429 14.2798C10.416 14.3895 10.5933 14.4782 10.7621 14.5626C10.9141 14.6386 11.0576 14.7103 11.18 14.7863C11.1969 14.7947 11.2138 14.8074 11.2307 14.8158C11.3742 14.8876 11.5093 14.9214 11.6486 14.9214C11.9989 14.9214 12.2184 14.7019 12.2902 14.6301L13.7338 13.1865C13.8773 13.043 14.1053 12.8699 14.3712 12.8699C14.6329 12.8699 14.8482 13.0345 14.9791 13.178C14.9833 13.1823 14.9833 13.1823 14.9875 13.1865L17.3134 15.5123C17.7481 15.9429 17.7481 16.3861 17.3176 16.8336Z">
+																	</path>
+																	<path
+																		d="M10.8084 4.75936C11.9144 4.94509 12.919 5.46851 13.721 6.27052C14.523 7.07254 15.0422 8.07717 15.2322 9.18311C15.2786 9.4617 15.5192 9.65588 15.7936 9.65588C15.8274 9.65588 15.8569 9.65166 15.8907 9.64743C16.203 9.59678 16.4099 9.3013 16.3592 8.98894C16.1313 7.65084 15.4981 6.43093 14.5315 5.46429C13.5648 4.49765 12.3449 3.86448 11.0068 3.63654C10.6944 3.58588 10.4032 3.79272 10.3483 4.10086C10.2934 4.409 10.4961 4.7087 10.8084 4.75936Z">
+																	</path>
+																	<path
+																		d="M19.9771 8.82242C19.6014 6.61899 18.563 4.61395 16.9674 3.01836C15.3718 1.42277 13.3668 0.384369 11.1634 0.00868773C10.8552 -0.0461871 10.564 0.16487 10.5091 0.473013C10.4584 0.785377 10.6653 1.07664 10.9776 1.13151C12.9447 1.46498 14.7387 2.39785 16.1654 3.82037C17.5922 5.24712 18.5208 7.0411 18.8543 9.00815C18.9007 9.28675 19.1413 9.48092 19.4157 9.48092C19.4495 9.48092 19.479 9.4767 19.5128 9.47248C19.8209 9.42604 20.032 9.13056 19.9771 8.82242Z">
+																	</path>
+																</svg>
+															</div>
+														</div>
+														<div class="box-body">
+															<h3 class="elementskit-info-box-title">
+																Urgent Inquiries </h3>
+															<p>+91 70506 12345</p>
+														</div>
+
+
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-0ac4ef6 e-con-full e-flex e-con e-child"
+							data-id="0ac4ef6" data-element_type="container" data-e-type="container">
+							<div class="elementor-element elementor-element-ae5902a e-con-full e-flex e-con e-child"
+								data-id="ae5902a" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-f20fb8f elementor-widget elementor-widget-text-editor"
+									data-id="f20fb8f" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="text-editor.default">
+									<p>Copyright © 2026 All Rights Reserved.</p>
+								</div>
+							</div>
+							<div class="elementor-element elementor-element-1415907 e-con-full e-flex e-con e-child"
+								data-id="1415907" data-element_type="container" data-e-type="container">
+								<div class="elementor-element elementor-element-0291ef7 footer-privacy-policy elementor-widget elementor-widget-ekit-vertical-menu"
+									data-id="0291ef7" data-element_type="widget" data-e-type="widget"
+									data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+									data-widget_type="ekit-vertical-menu.default">
+									<div class="ekit-wid-con">
+										<div class="ekit-vertical-main-menu-wraper   badge-position-left">
+											<!-- <div class="ekit-vertical-menu-container">
+												<ul id="menu-privacy-policy-menu"
+													class="ekit-vertical-navbar-nav submenu-click-on-icon">
+													<li id="menu-item-2182"
+														class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2182 nav-item elementskit-mobile-builder-content"
+														data-vertical-menu=750px><a href="#"
+															class="ekit-menu-nav-link">Privacy Policy</a></li>
+													<li id="menu-item-2183"
+														class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2183 nav-item elementskit-mobile-builder-content"
+														data-vertical-menu=750px><a href="#"
+															class="ekit-menu-nav-link">Terms &#038; Conditions</a></li>
+												</ul>
+											</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/luxine/*"},{"not":{"href_matches":["/luxine/wp-*.php","/luxine/wp-admin/*","/luxine/wp-content/uploads/*","/luxine/wp-content/*","/luxine/wp-content/plugins/*","/luxine/wp-content/themes/luxine/*","/luxine/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<script>
+		const lazyloadRunObserver = () => {
+			const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
+			const lazyloadBackgroundObserver = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						let lazyloadBackground = entry.target;
+						if (lazyloadBackground) {
+							lazyloadBackground.classList.add('e-lazyloaded');
+						}
+						lazyloadBackgroundObserver.unobserve(entry.target);
+					}
+				});
+			}, { rootMargin: '200px 0px 200px 0px' });
+			lazyloadBackgrounds.forEach((lazyloadBackground) => {
+				lazyloadBackgroundObserver.observe(lazyloadBackground);
+			});
+		};
+		const events = [
+			'DOMContentLoaded',
+			'elementor/lazyload/observe',
+		];
+		events.forEach((event) => {
+			document.addEventListener(event, lazyloadRunObserver);
+		});
+	</script>
+	<script src="js/hooks.minaf5f.js"></script>
+	<script src="js/i18n.min1cde.js"></script>
+	<script id="wp-i18n-js-after">
+		wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+		//# sourceURL=wp-i18n-js-after
+	</script>
+	<script src="js/indexb5e1.js?ver=6.1.5"></script>
+	<script id="contact-form-7-js-before">
+		var wpcf7 = {
+			"api": {
+				"root": "https:\/\/demo.awaikenthemes.com\/luxine\/wp-json\/",
+				"namespace": "contact-form-7\/v1"
+			}
+		};
+		//# sourceURL=contact-form-7-js-before
+	</script>
+	<script src="js/indexb5e1-1.js"></script>
+	<script src="js/SmoothScroll.min20b9.js"></script>
+	<script src="s/gsap.min20b9.js"></script>
+	<script src="js/magiccursor20b9.js"></script>
+	<script src="js/SplitText20b9.js"></script>
+	<script src="js/ScrollTrigger.min20b9.js"></script>
+	<script src="js/three.min20b9.js"></script>
+	<script id="theme-js-js-extra">
+		var theme_vars = { "theme_uri": "https://demo.awaikenthemes.com/luxine/wp-content/themes/luxine" };
+		//# sourceURL=theme-js-js-extra
+	</script>
+	<script src="js/function20b9.js"></script>
+	<script src="js/frontend-script7e2e.js"></script>
+	<script id="elementskit-framework-js-frontend-js-after">
+		var elementskit = {
+			resturl: 'https://demo.awaikenthemes.com/luxine/wp-json/elementskit/v1/',
+		}
+
+
+		//# sourceURL=elementskit-framework-js-frontend-js-after
+	</script>
+	<script src="js/widget-scripts7e2e.js"></script>
+	<script src="js/webpack.runtime.min787f.js"></script>
+	<script src="js/frontend-modules.min787f.js"></script>
+	<script src="js/core.minb37e.js"></script>
+	<script id="elementor-frontend-js-before">
+		var elementorFrontendConfig = {
+			"environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": {
+				"breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1440, "default_value": 1366, "direction": "max", "is_enabled": true }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } },
+				"hasCustomBreakpoints": true
+			}, "version": "3.35.7", "is_static": false, "experimentalFeatures": { "additional_custom_breakpoints": true, "container": true, "e_optimized_markup": true, "e_pro_free_trial_popup": true, "nested-elements": true, "home_screen": true, "global_classes_should_enforce_capabilities": true, "e_variables": true, "cloud-library": true, "e_opt_in_v4_page": true, "e_components": true, "e_interactions": true, "e_editor_one": true, "import-export-customization": true }, "urls": { "assets": "https:\/\/demo.awaikenthemes.com\/luxine\/wp-content\/plugins\/elementor\/assets\/", "ajaxurl": "https:\/\/demo.awaikenthemes.com\/luxine\/wp-admin\/admin-ajax.php", "uploadUrl": "https:\/\/demo.awaikenthemes.com\/luxine\/wp-content\/uploads" }, "nonces": { "floatingButtonsClickTracking": "272cbcf322" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet", "viewport_laptop"], "viewport_laptop": 1440, "body_background_background": "classic", "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 13, "title": "luxine%20%E2%80%93%20Architecture%20%26%20Interior%20Design%20WordPress%20Theme", "excerpt": "", "featuredImage": false }
+		};
+		//# sourceURL=elementor-frontend-js-before
+	</script>
+	<script src="js/frontend.min787f.js"></script>
+	<script id="mediaelement-core-js-before">
+		var mejsL10n = { "language": "en", "strings": { "mejs.download-file": "Download File", "mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https://get.adobe.com/flashplayer/", "mejs.fullscreen": "Fullscreen", "mejs.play": "Play", "mejs.pause": "Pause", "mejs.time-slider": "Time Slider", "mejs.time-help-text": "Use Left/Right Arrow keys to advance one second, Up/Down arrows to advance ten seconds.", "mejs.live-broadcast": "Live Broadcast", "mejs.volume-help-text": "Use Up/Down Arrow keys to increase or decrease volume.", "mejs.unmute": "Unmute", "mejs.mute": "Mute", "mejs.volume-slider": "Volume Slider", "mejs.video-player": "Video Player", "mejs.audio-player": "Audio Player", "mejs.captions-subtitles": "Captions/Subtitles", "mejs.captions-chapters": "Chapters", "mejs.none": "None", "mejs.afrikaans": "Afrikaans", "mejs.albanian": "Albanian", "mejs.arabic": "Arabic", "mejs.belarusian": "Belarusian", "mejs.bulgarian": "Bulgarian", "mejs.catalan": "Catalan", "mejs.chinese": "Chinese", "mejs.chinese-simplified": "Chinese (Simplified)", "mejs.chinese-traditional": "Chinese (Traditional)", "mejs.croatian": "Croatian", "mejs.czech": "Czech", "mejs.danish": "Danish", "mejs.dutch": "Dutch", "mejs.english": "English", "mejs.estonian": "Estonian", "mejs.filipino": "Filipino", "mejs.finnish": "Finnish", "mejs.french": "French", "mejs.galician": "Galician", "mejs.german": "German", "mejs.greek": "Greek", "mejs.haitian-creole": "Haitian Creole", "mejs.hebrew": "Hebrew", "mejs.hindi": "Hindi", "mejs.hungarian": "Hungarian", "mejs.icelandic": "Icelandic", "mejs.indonesian": "Indonesian", "mejs.irish": "Irish", "mejs.italian": "Italian", "mejs.japanese": "Japanese", "mejs.korean": "Korean", "mejs.latvian": "Latvian", "mejs.lithuanian": "Lithuanian", "mejs.macedonian": "Macedonian", "mejs.malay": "Malay", "mejs.maltese": "Maltese", "mejs.norwegian": "Norwegian", "mejs.persian": "Persian", "mejs.polish": "Polish", "mejs.portuguese": "Portuguese", "mejs.romanian": "Romanian", "mejs.russian": "Russian", "mejs.serbian": "Serbian", "mejs.slovak": "Slovak", "mejs.slovenian": "Slovenian", "mejs.spanish": "Spanish", "mejs.swahili": "Swahili", "mejs.swedish": "Swedish", "mejs.tagalog": "Tagalog", "mejs.thai": "Thai", "mejs.turkish": "Turkish", "mejs.ukrainian": "Ukrainian", "mejs.vietnamese": "Vietnamese", "mejs.welsh": "Welsh", "mejs.yiddish": "Yiddish" } };
+		//# sourceURL=mediaelement-core-js-before
+	</script>
+	<script src="js/mediaelement-and-player.min1f61.js"></script>
+	<script src="js/mediaelement-migrate.minb34e.js"></script>
+	<script id="mediaelement-js-extra">
+		var _wpmejsSettings = { "pluginPath": "/luxine/wp-includes/js/mediaelement/", "classPrefix": "mejs-", "stretching": "responsive", "audioShortcodeLibrary": "mediaelement", "videoShortcodeLibrary": "mediaelement" };
+		//# sourceURL=mediaelement-js-extra
+	</script>
+	<script src="js/wp-mediaelement.minb34e.js"></script>
+	<script src="js/jarallax3a05.js"></script>
+	<script src="js/parallax-admin3a05.js" id="elementskit-parallax-admin-js"></script>
+	<script src="js/jquery-numerator.min3958.js"></script>
+	<script src="js/swiper.min94a4.js"></script>
+	<script src="js/imagesloaded.minbb93.js"></script>
+	<script src="js/animate-circle.min7e2e.js"></script>
+	<script id="elementskit-elementor-js-extra">
+		var ekit_config = { "ajaxurl": "https://demo.awaikenthemes.com/luxine/wp-admin/admin-ajax.php", "nonce": "5b2c4dfcb6" };
+		//# sourceURL=elementskit-elementor-js-extra
+	</script>
+	<script src="js/elementor7e2e.js"></script>
+	<script src="js/elementor3a05.js"></script>
+	<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://demo.awaikenthemes.com/luxine/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+	<script type="module">
+		/*! This file is auto-generated */
+		const a = JSON.parse(document.getElementById("wp-emoji-settings").textContent), o = (window._wpemojiSettings = a, "wpEmojiSettingsSupports"), s = ["flag", "emoji"]; function i(e) { try { var t = { supportTests: e, timestamp: (new Date).valueOf() }; sessionStorage.setItem(o, JSON.stringify(t)) } catch (e) { } } function c(e, t, n) { e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0); t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data); e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0); const a = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data); return t.every((e, t) => e === a[t]) } function p(e, t) { e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0); var n = e.getImageData(16, 16, 1, 1); for (let e = 0; e < n.data.length; e++)if (0 !== n.data[e]) return !1; return !0 } function u(e, t, n, a) { switch (t) { case "flag": return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !n(e, "\ud83c\udde8\ud83c\uddf6", "\ud83c\udde8\u200b\ud83c\uddf6") && !n(e, "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"); case "emoji": return !a(e, "\ud83e\u1fac8") }return !1 } function f(e, t, n, a) { let r; const o = (r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : document.createElement("canvas")).getContext("2d", { willReadFrequently: !0 }), s = (o.textBaseline = "top", o.font = "600 32px Arial", {}); return e.forEach(e => { s[e] = t(o, e, n, a) }), s } function r(e) { var t = document.createElement("script"); t.src = e, t.defer = !0, document.head.appendChild(t) } a.supports = { everything: !0, everythingExceptFlag: !0 }, new Promise(t => { let n = function () { try { var e = JSON.parse(sessionStorage.getItem(o)); if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests } catch (e) { } return null }(); if (!n) { if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try { var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), c.toString(), p.toString()].join(",") + "));", a = new Blob([e], { type: "text/javascript" }); const r = new Worker(URL.createObjectURL(a), { name: "wpTestEmojiSupports" }); return void (r.onmessage = e => { i(n = e.data), r.terminate(), t(n) }) } catch (e) { } i(n = f(s, u, c, p)) } t(n) }).then(e => { for (const n in e) a.supports[n] = e[n], a.supports.everything = a.supports.everything && a.supports[n], "flag" !== n && (a.supports.everythingExceptFlag = a.supports.everythingExceptFlag && a.supports[n]); var t; a.supports.everythingExceptFlag = a.supports.everythingExceptFlag && !a.supports.flag, a.supports.everything || ((t = a.source || {}).concatemoji ? r(t.concatemoji) : t.wpemoji && t.twemoji && (r(t.twemoji), r(t.wpemoji))) });
+		//# sourceURL=https://demo.awaikenthemes.com/luxine/wp-includes/js/wp-emoji-loader.min.js
+	</script>
+	<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
