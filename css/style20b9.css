@@ -5025,3 +5025,18 @@ body.admin-bar .main-header.ekit-sticky--effects{
 .service-icon{
 	width: 70px;
 }
+
+.color-1{
+	color: #dcaa1a!important;
+}
+.color-2{
+	color: #f1ca54!important; 
+}
+.whatsappfooter {
+    position: fixed;
+    bottom: 80px;
+    height: 50px;
+    z-index: 9999;
+    width: 40px;
+    right: 25px;
+}
