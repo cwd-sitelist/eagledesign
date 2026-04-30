@@ -3119,7 +3119,7 @@ aside.widget .wp-block-social-links{
 	background: transparent;
 }
 
-.luxine-archive-project .awaiken-portfolio-grid .awaiken-portfolio-grid-item__wrapper{
+.Eagle-archive-project .awaiken-portfolio-grid .awaiken-portfolio-grid-item__wrapper{
 	height: calc(100% - 30px);
 	margin-bottom: 30px;
 }
@@ -3529,10 +3529,10 @@ body.admin-bar .main-header.ekit-sticky--effects{
 	display: block;
 }
 
-.luxine-header-preview .header-version-1,
-.luxine-header-preview .header-version-2,
-.luxine-header-preview .header-version-3,
-.luxine-header-preview .header-version-4{
+.Eagle-header-preview .header-version-1,
+.Eagle-header-preview .header-version-2,
+.Eagle-header-preview .header-version-3,
+.Eagle-header-preview .header-version-4{
 	background-color: var(--e-global-color-primary);
 }
 
@@ -3868,11 +3868,11 @@ body.admin-bar .main-header.ekit-sticky--effects{
 	height: 18px;
 }
 
-.luxine-hide-small-icon .section-title .elementor-heading-title::before{
+.Eagle-hide-small-icon .section-title .elementor-heading-title::before{
 	display: none;
 }
 
-.luxine-hide-small-icon .section-title .elementor-heading-title{
+.Eagle-hide-small-icon .section-title .elementor-heading-title{
 	padding-left: 0 !important;
 }
 

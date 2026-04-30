@@ -273,11 +273,11 @@ body.rtl .elementor-850 .elementor-element.elementor-element-5f12933 {
 	overflow: visible;
 }
 
-.elementor-widget-luxine-site-logo .ata-site-logo-container .ata-site-logo-img {
+.elementor-widget-Eagle-site-logo .ata-site-logo-container .ata-site-logo-img {
 	border-color: var(--e-global-color-primary);
 }
 
-.elementor-widget-luxine-site-logo .widget-image-caption {
+.elementor-widget-Eagle-site-logo .widget-image-caption {
 	color: var(--e-global-color-text);
 	font-family: var(--e-global-typography-text-font-family), Sans-serif;
 	font-size: var(--e-global-typography-text-font-size);
@@ -502,7 +502,7 @@ body.rtl .elementor-850 .elementor-element.elementor-element-5f12933 {
 }
 
 @media(max-width:1440px) {
-	.elementor-widget-luxine-site-logo .widget-image-caption {
+	.elementor-widget-Eagle-site-logo .widget-image-caption {
 		font-size: var(--e-global-typography-text-font-size);
 		line-height: var(--e-global-typography-text-line-height);
 		letter-spacing: var(--e-global-typography-text-letter-spacing);
@@ -553,7 +553,7 @@ body.rtl .elementor-850 .elementor-element.elementor-element-5f12933 {
 		--padding-right: 10px;
 	}
 
-	.elementor-widget-luxine-site-logo .widget-image-caption {
+	.elementor-widget-Eagle-site-logo .widget-image-caption {
 		font-size: var(--e-global-typography-text-font-size);
 		line-height: var(--e-global-typography-text-line-height);
 		letter-spacing: var(--e-global-typography-text-letter-spacing);
@@ -714,7 +714,7 @@ body.rtl .elementor-850 .elementor-element.elementor-element-5f12933 {
 		--width: 80%;
 	}
 
-	.elementor-widget-luxine-site-logo .widget-image-caption {
+	.elementor-widget-Eagle-site-logo .widget-image-caption {
 		font-size: var(--e-global-typography-text-font-size);
 		line-height: var(--e-global-typography-text-line-height);
 		letter-spacing: var(--e-global-typography-text-letter-spacing);

@@ -1076,7 +1076,7 @@
 
 	// Elementor frontend hook
 	$window.on("elementor/frontend/init", function () {
-		elementorFrontend.hooks.addAction("frontend/element_ready/luxine-project-grid.default", project_grid	);
+		elementorFrontend.hooks.addAction("frontend/element_ready/Eagle-project-grid.default", project_grid	);
 		elementorFrontend.hooks.addAction("frontend/element_ready/at-projects-slider.default", projects_slider	);
 		const hoverFx = dataItemHover();
         elementorFrontend.hooks.addAction("frontend/element_ready/image.default", function($scope){
