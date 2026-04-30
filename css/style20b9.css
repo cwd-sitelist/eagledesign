@@ -5034,7 +5034,7 @@ body.admin-bar .main-header.ekit-sticky--effects{
 }
 .whatsappfooter {
     position: fixed;
-    bottom: 80px;
+    bottom: 25px;
     height: 50px;
     z-index: 9999;
     width: 40px;
